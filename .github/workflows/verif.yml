@@ -42,13 +42,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout main repo
         uses: actions/checkout@v4
-      
-      - name: Checkout verification environment
-        uses: actions/checkout@v4
-        with:
-          repository: knezicm/pds-2022-verification
-          token: ${{ secrets.PDS_PAT }}
-          path: pds-verif
           
         # ModelSim requires these 32-bit libraries to be installed: https://www.intel.com/content/www/us/en/programmable/support/support-resources/knowledge-base/solutions/rd05302012_638.html
         # Some of these are technically only required for the GUI, but it won't load on a headless server without them.
@@ -69,6 +62,13 @@ jobs:
       - name: Add ModelSim to PATH
         run: echo "$HOME/intelFPGA/20.1/modelsim_ase/bin" >> $GITHUB_PATH
       
+      - name: Checkout verification environment
+        uses: actions/checkout@v4
+        with:
+          repository: knezicm/pds-2022-verification
+          token: ${{ secrets.PDS_PAT }}
+          path: pds-verif
+          
       - name: Run script (simulation and synthesis)
         run: |
           cd pds-verif/verif
