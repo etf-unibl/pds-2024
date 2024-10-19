@@ -34,7 +34,6 @@ jobs:
   # This job starts docker image and runs simulation script
   pds-verification:
     runs-on: ubuntu-latest
-    container: mluckydwyer/hw-ci:full
     env:
       PR_TITLE: ${{ github.event.pull_request.title }}
     
