@@ -30,9 +30,53 @@ jobs:
         run: |
           cd vhdllint-ohwr
           .\check-files.bat ($env:PR_TITLE -replace '[^0-9+]') ..\assignments\
+
+  # This job starts docker image and runs simulation script
+  pds-verification:
+    runs-on: ubuntu-latest
+    container: bslathi19/modelsim_18.1:lite
+    env:
+      PR_TITLE: ${{ github.event.pull_request.title }}
+    
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout main repo
+        uses: actions/checkout@v4
+      
+      - name: Checkout verification environment
+        uses: actions/checkout@v4
+        with:
+          repository: knezicm/pds-2022-verification
+          token: ${{ secrets.PDS_PAT }}
+          path: pds-verif
+      
+      - name: Run script (simulation and synthesis)
+        run: |
+          cd pds-verif/verif
+          python ./run_test.py --synth --issue=$(echo $PR_TITLE | grep -o -E '[0-9]+') --path=$(pwd)/../.. --lookup_table=./lookup/pds_2023_issues.lookup
+      
+      - name: Make new dir and copy results
+        if: always()
+        run: |
+          mkdir results
+          mkdir results/sim
+          mkdir results/synth
+          cp -r pds-verif/verif/sim/$(echo $PR_TITLE | grep -o -E '[0-9]+')/test_results/* results/sim
+          cp -r pds-verif/verif/synth/$(echo $PR_TITLE | grep -o -E '[0-9]+') results/synth
+
+      - name: Upload simulation and synthesis artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verif-artifacts
+          path: results
+          retention-days: 10
     
   # This job prepares environment and runs simulation script
   verif:
+    # Uncomment the line below to disable the verif job
+    if: ${{ false }}
     # The job runs on a self-hosted runner
     runs-on: self-hosted
     env:
