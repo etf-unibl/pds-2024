@@ -1,15 +1,16 @@
+
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity invertor is
+entity test is
 	port
 	(
-		input	: in  std_logic;
-		output	: out std_logic
+		i1	: in  std_logic;
+		o1	: out std_logic
 	);
-end invertor;
+end test;
 
-architecture in_arch of invertor is
+architecture test_arch of test is
 begin
 	
-end in_arch;
+end test_arch;
