@@ -34,7 +34,7 @@ jobs:
   # This job starts docker image and runs simulation script
   pds-verification:
     runs-on: ubuntu-latest
-    container: bslathi19/modelsim_18.1:lite
+    container: cdotrus/modelsim-intel
     env:
       PR_TITLE: ${{ github.event.pull_request.title }}
     
@@ -54,7 +54,7 @@ jobs:
       - name: Run script (simulation and synthesis)
         run: |
           cd pds-verif/verif
-          python ./run_test.py --synth --issue=$(echo $PR_TITLE | grep -o -E '[0-9]+') --path=$(pwd)/../.. --lookup_table=./lookup/pds_2023_issues.lookup
+          python ./run_test.py --issue=$(echo $PR_TITLE | grep -o -E '[0-9]+') --path=$(pwd)/../.. --lookup_table=./lookup/pds_2024_issues.lookup
       
       - name: Make new dir and copy results
         if: always()

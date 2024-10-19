@@ -7,7 +7,7 @@ entity nand2_gate is
         );
 end nand2_gate;
 
-architecture beh_arch_nand2 of nand2_gate is
+architecture beh_nand2 of nand2_gate is
 begin
    Y_o <= A_i nand B_i;
 end beh_nand2;
