@@ -34,7 +34,7 @@ jobs:
   # This job starts docker image and runs simulation script
   pds-verification:
     runs-on: ubuntu-latest
-    container: cdotrus/modelsim-intel
+    container: chaseruskin/modelsim-intel
     env:
       PR_TITLE: ${{ github.event.pull_request.title }}
     
