@@ -42,9 +42,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout main repo
         uses: actions/checkout@v4
-    
-      - name: Check Python version
-        run: python --version
           
         # ModelSim requires these 32-bit libraries to be installed: https://www.intel.com/content/www/us/en/programmable/support/support-resources/knowledge-base/solutions/rd05302012_638.html
         # Some of these are technically only required for the GUI, but it won't load on a headless server without them.
@@ -61,7 +58,7 @@ jobs:
           path: $HOME/intelFPGA
           key: ${{ runner.os }}-modelsim
       - name: Install ModelSim if not cached
-        run: stat $HOME/intelFPGA/20.1/modelsim_ase || (curl 'https://download.altera.com/akdlm/software/acdsinst/20.1std.1/720/ib_installers/ModelSimSetup-20.1.1.720-linux.run' -o ModelSimSetup.run && chmod +x ModelSimSetup.run && ./ModelSimSetup.run --mode unattended --accept_eula 1 && pwd && ls $HOME && sed -i 's/linux_rh60/linux/g' $HOME/intelFPGA/20.1/modelsim_ase/vco )
+        run: stat $HOME/intelFPGA/20.1/modelsim_ase || (curl 'https://download.altera.com/akdlm/software/acdsinst/20.1std.1/720/ib_installers/ModelSimSetup-20.1.1.720-linux.run' -o ModelSimSetup.run && chmod +x ModelSimSetup.run && ./ModelSimSetup.run --mode unattended --accept_eula 1 && pwd && ls $HOME/work && sed -i 's/linux_rh60/linux/g' $HOME/intelFPGA/20.1/modelsim_ase/vco )
       - name: Add ModelSim to PATH
         run: echo "$HOME/intelFPGA/20.1/modelsim_ase/bin" >> $GITHUB_PATH
       
