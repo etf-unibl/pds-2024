@@ -33,6 +33,8 @@ jobs:
 
   # This job starts docker image and runs simulation script
   pds-verification:
+    # Uncomment the line below to disable the pds-verification job
+    if: ${{ false }}
     runs-on: ubuntu-latest
     env:
       PR_TITLE: ${{ github.event.pull_request.title }}
@@ -94,7 +96,7 @@ jobs:
   # This job prepares environment and runs simulation script
   verif:
     # Uncomment the line below to disable the verif job
-    if: ${{ false }}
+    #if: ${{ false }}
     # The job runs on a self-hosted runner
     runs-on: self-hosted
     env:
