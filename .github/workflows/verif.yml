@@ -137,7 +137,7 @@ jobs:
       - name: Run script (simulation and synthesis)
         run: |
           cd pds-verif/verif
-          python ./run_test.py --synth --issue=$(echo $PR_TITLE | grep -o -E '[0-9]+') --path=$(pwd)/../.. --lookup_table=./lookup/pds_2023_issues.lookup
+          python ./run_test.py --synth --issue=$(echo $PR_TITLE | grep -o -E '[0-9]+') --path=$(pwd)/../.. --lookup_table=./lookup/pds_2024_issues.lookup
       
       - name: Make new dir and copy results
         if: always()
