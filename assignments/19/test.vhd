@@ -7,7 +7,7 @@ entity test is
 end test;
 
 
-architecture test_arch of arch is
+architecture test_arch of test is
 begin
 
 end test_arch;
