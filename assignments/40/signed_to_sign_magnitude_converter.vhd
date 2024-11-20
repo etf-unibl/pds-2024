@@ -8,7 +8,7 @@
 --
 -- description:
 --
---   This file implements a convertion of signed 8-bit number in form of
+--   This file implements a conversion of signed 8-bit number in form of
 --   two's complement to form of signed-magnitude.
 --
 -----------------------------------------------------------------------------
@@ -69,9 +69,15 @@ begin
   begin
 
     if zero = '1' then
-      -- If we have 'negative zero', we convert it to 'positive zero'
-      SIGN_MAG_o <= (others => '0');
-    elsif SIGN_BIN_i(7) = '1' then
+      if SIGN_BIN_i(7) = '1' then
+        -- If we have 'negative zero', we have undefined value
+        SIGN_MAG_o <= "10000000";
+      else 
+        -- If we have 'negative zero', we have
+        SIGN_MAG_o <= "00000000";
+      end if;
+    end if;
+    if SIGN_BIN_i(7) = '1' then
       -- If 8th bit is 1, number is negative -> invert and add 1 (two's complement)
       SIGN_MAG_o <= '1' & std_logic_vector(not (signed (SIGN_BIN_i(6 downto 0)))+1);
     else

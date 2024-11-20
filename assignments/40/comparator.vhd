@@ -50,8 +50,9 @@ end comparator;
 architecture arch of comparator is
 
   constant c_B : std_logic_vector(6 downto 0) := (others => '0');
-
+  signal zero  : std_logic;
 begin
-  zero_o <= '1' when a_i = c_B else
-          '0';
+  zero   <= '1' when a_i = c_B else
+            '0';
+  zero_o <= zero;
 end arch;

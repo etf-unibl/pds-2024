@@ -68,11 +68,11 @@ begin
     -- First value 'negative' zero and report for this case
     SIGN_BIN_i_test <= "10000000";
     wait for 50 ns;
-    assert (SIGN_MAG_o_test = "00000000")
+    assert (SIGN_MAG_o_test = "10000000")
     report "Error at " & integer'image(to_integer(signed(SIGN_BIN_i_test)))
     severity error;
     -- Additional report for success cases
-    report "Test passed for SIGN_BIN = 0";
+    report "Test passed for SIGN_BIN = " & integer'image(to_integer(signed(SIGN_BIN_i_test)));
     wait for 50 ns;
 
     -- For loop for all values from -127 to 127
