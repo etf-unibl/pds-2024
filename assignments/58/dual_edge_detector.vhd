@@ -49,7 +49,7 @@ entity dual_edge_detector is
 end dual_edge_detector;
 
 -- ! @brief implementacija arhitekture
-architecture dual_edge_detector_arch of dual_edge_detector is
+architecture arch of dual_edge_detector is
   -- ! @brief tip stanje sa dva stanja zero i one
   type t_state is (zero, one);
   -- ! @brief pomocni signali koji su tipa t_state (trenutno i naredno stanje)
@@ -97,4 +97,4 @@ begin
     end if;
   end process;
 
-end dual_edge_detector_arch;
+end arch;
