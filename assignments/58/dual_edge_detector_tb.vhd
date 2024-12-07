@@ -1,4 +1,5 @@
 -----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
 -- Faculty of Electrical Engineering
 -- PDS 2024
 -- https://github.com/etf-unibl/pds-2024
@@ -60,7 +61,7 @@ architecture tb_arch of dual_edge_detector_tb is
 	signal clk_i : std_logic := '0';
 	signal rst_i : std_logic := '0';
 	signal strobe_i : std_logic := '0';
-	signal p_o : std_logic := '0';
+	signal p_o : std_logic ;
 	
 	constant T : time := 20 ns;
 	constant clk_num : integer := 15;
@@ -113,19 +114,18 @@ begin
 			strobe_i <= test_vectors(i).strobe_in(1);
 			wait for T;
 			strobe_i <= test_vectors(i).strobe_in(0);
-			wait for T;
-			
-	
-			
+		   wait for T/8;
 			report "Test " & integer'image(i) & " : "
-				& "strobe_in = " & std_logic'image(test_vectors(i).strobe_in(0))
-				&  std_logic'image(test_vectors(i).strobe_in(1))
+				& "strobe_in = " & std_logic'image(test_vectors(i).strobe_in(1))
+				&  std_logic'image(test_vectors(i).strobe_in(0))
 				& ", expected_out = " & std_logic'image(test_vectors(i).expected_out)
 				& ", actual_out = " & std_logic'image(p_o);
 				
 			assert (p_o = test_vectors(i).expected_out)
 				report "Test failed for index " & integer'image(i)
 				severity error;
+			wait for T;
+			
 		end loop;
 		
 		wait;
