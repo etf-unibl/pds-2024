@@ -38,117 +38,143 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+use ieee.math_real.all;
+use ieee.math_real.all;
+use std.textio.all;
+use ieee.std_logic_textio.all;
 
 entity mem_ctrl_vhd_tst is
 end mem_ctrl_vhd_tst;
-
 architecture arch of mem_ctrl_vhd_tst is
--- ! @brief Signal declarations
-  signal clk_i     : std_logic := '0';
-  signal rst_i     : std_logic := '0';
-  signal mem_i     : std_logic := '0';
-  signal rw_i      : std_logic := '0';
-  signal burst_i   : std_logic := '0';
-  signal oe_o      : std_logic;
-  signal we_o      : std_logic;
-  signal we_me_o   : std_logic;
-
-  constant c_T : time := 20 ns;
-
+-- ! @brief signals
+  signal burst_i : STD_LOGIC := '0';
+  signal clk_i   : STD_LOGIC := '0';
+  signal mem_i   : STD_LOGIC := '0';
+  signal oe_o    : STD_LOGIC := '0';
+  signal rst_i   : STD_LOGIC := '0';
+  signal rw_i    : STD_LOGIC := '0';
+  signal we_o    : STD_LOGIC;
+  signal we_me_o : STD_LOGIC;
   component mem_ctrl
     port (
-      clk_i   : in  std_logic;
-      rst_i   : in  std_logic;
-      mem_i   : in  std_logic;
-      rw_i    : in  std_logic;
-      burst_i : in  std_logic;
-      oe_o    : out std_logic;
-      we_o    : out std_logic;
-      we_me_o : out std_logic
-    );
+   burst_i : in STD_LOGIC;
+   clk_i   : in STD_LOGIC;
+   mem_i   : in STD_LOGIC;
+   oe_o    : out STD_LOGIC;
+   rst_i   : in STD_LOGIC;
+   rw_i    : in STD_LOGIC;
+   we_o    : out STD_LOGIC;
+   we_me_o : out STD_LOGIC
+   );
   end component;
-
+  constant c_T : time := 20 ns;
+  constant c_num_of_clocks : integer := 500;
+  signal i : integer := 0;   -- loop variable
+  file output_buf : text;
+-- ! @brief Moguce proci kroz sva stanja rucno
+  type test_vector is record
+      mem_i :  STD_LOGIC;
+      rw_i :  STD_LOGIC;
+      burst_i :  STD_LOGIC;
+      rst_i :  STD_LOGIC;
+   end record;
+-- ! @brief Comment for file-based testbench
+  type test_vector_array is array (natural range <>) of test_vector;
+  constant c_test_vectors : test_vector_array := (
+      ('1','0','0','0'), -- ! @brief write
+      ('1','1','0','0'), -- ! @brief read
+      ('1','1','1','0'), -- ! @brief burst
+      ('0','0','0','0'), -- ! @brief idle
+      ('1','1','1','1')  -- ! @brief reset
+   );
 begin
--- ! @brief DUT instantiation
-  uut : mem_ctrl
-    port map (
-      clk_i   => clk_i,
-      rst_i   => rst_i,
-      mem_i   => mem_i,
-      rw_i    => rw_i,
-      burst_i => burst_i,
-      oe_o    => oe_o,
-      we_o    => we_o,
-      we_me_o => we_me_o
-    );
-
--- ! @brief Clock generation process
+  i1 : mem_ctrl
+   port map (
+-- ! @brief List connections between master ports and signals
+   burst_i => burst_i,
+   clk_i   => clk_i,
+   mem_i   => mem_i,
+   oe_o    => oe_o,
+   rst_i   => rst_i,
+   rw_i    => rw_i,
+   we_o    => we_o,
+   we_me_o => we_me_o
+   );
   clock_gen : process
   begin
-    while true loop
-      clk_i <= '0';
-      wait for c_T / 2;
-      clk_i <= '1';
-      wait for c_T / 2;
-    end loop;
+    clk_i <= '0';
+    wait for c_T/2;
+    clk_i <= '1';
+    wait for c_T/2;
+    if (i = c_num_of_clocks) then
+      file_close(output_buf);
+      wait;
+    else
+      i <= i + 1;
+    end if;
   end process clock_gen;
-
--- ! @brief Stimulus process
-  stimulus_proc : process
+  process(clk_i)
+    variable write_col_to_output_buf : line;
+    variable flag : boolean := true;
   begin
--- ! @brief Reset
-    rst_i <= '1';
-    wait for c_T;
-    rst_i <= '0';
-    wait for c_T;
-
--- ! @brief Test 1: Idle
-    mem_i <= '0';
-    rw_i <= '0';
-    burst_i <= '0';
-    wait for c_T;
-    assert (oe_o = '0' and we_o = '0' and we_me_o = '0')
-      report "Test 1 failed: Idle state" severity error;
-
--- ! @brief Test 2: Write operation
-    mem_i <= '1';
-    rw_i <= '0';
-    burst_i <= '0';
-    wait for c_T;
-    assert (we_o = '1' and we_me_o = '1' and oe_o = '0')
-      report "Test 2 failed: Write operation" severity error;
-
--- ! @brief Test 3: Single read
-    mem_i <= '1';
-    rw_i <= '1';
-    burst_i <= '0';
-    wait for 2*c_T;
-    assert (oe_o = '1' and we_o = '0' and we_me_o = '0')
-      report "Test 3 failed: Read operation" severity error;
-
--- ! @brief Test 4: Burst read
-    mem_i <= '1';
-    rw_i <= '1';  -- Read operation
-    burst_i <= '1';  -- Burst read enabled
-    wait for 5 * c_T;
-    assert (oe_o = '1' and we_o = '0' and we_me_o = '0')
-      report "Test 5 failed: Burst read operation" severity error;
-
--- ! @brief  Test 5: Write operation during burst
-    mem_i <= '1';
-    rw_i <= '0';  -- Write operation
-    burst_i <= '1';  -- Burst read is active
-    wait for 2 * c_T;
-    assert (we_o = '1' and oe_o = '0' and we_me_o = '1')
-      report "Test 6 failed: Write operation during burst" severity error;
-
--- ! @brief Test 6: Read operation after burst
-    mem_i <= '1';
-    rw_i <= '1';  -- Read operation
-    burst_i <= '0';  -- Burst read finished
-    wait for 2 * c_T;
-    assert (oe_o = '1' and we_o = '0' and we_me_o = '0')
-      report "Test 7 failed: Read operation after burst" severity error;
+    if (flag) then
+      file_open(output_buf, "C:\Users\Korisnik\Desktop\VHDL\Zadatak 4\data_files\mem_ctrl_data.csv", write_mode);
+      write(write_col_to_output_buf, string'("we_o,we_me_o,oe_o,mem_i,rw_i,burst_i,rst_i"));
+      writeline(output_buf, write_col_to_output_buf);
+      flag := false;
+    end if;
+    if (rising_edge(clk_i))then
+      write(write_col_to_output_buf, we_o);
+      write(write_col_to_output_buf, string'(","));
+      write(write_col_to_output_buf, we_me_o);
+      write(write_col_to_output_buf, string'(","));
+      write(write_col_to_output_buf, oe_o);
+      write(write_col_to_output_buf, string'(","));
+      write(write_col_to_output_buf, mem_i);
+      write(write_col_to_output_buf, string'(","));
+      write(write_col_to_output_buf, rw_i);
+      write(write_col_to_output_buf, string'(","));
+      write(write_col_to_output_buf, burst_i);
+      write(write_col_to_output_buf, string'(","));
+      write(write_col_to_output_buf, rst_i);
+      writeline(output_buf, write_col_to_output_buf);
+    end if;
+  end process;
+  stim_proc : process
+    variable seed1 : positive;
+    variable seed2 : positive;
+    variable x : real;
+    variable y : integer;
+    variable help : std_logic_vector(3 downto 0);
+  begin
+-- ! @brief Na pocetku rucno prodjemo kroz sva moguca stanja
+    wait for 30 ns;
+    mem_i <= c_test_vectors(0).mem_i;
+    rw_i <= c_test_vectors(0).rw_i;
+    burst_i <= c_test_vectors(0).burst_i;
+    rst_i <= c_test_vectors(0).rst_i;
+    wait for 40 ns;
+    mem_i <= c_test_vectors(1).mem_i;
+    rw_i <= c_test_vectors(1).rw_i;
+    burst_i <= c_test_vectors(1).burst_i;
+    rst_i <= c_test_vectors(1).rst_i;
+    wait for 40 ns;
+    mem_i <= c_test_vectors(2).mem_i;
+    rw_i <= c_test_vectors(2).rw_i;
+    burst_i <= c_test_vectors(2).burst_i;
+    rst_i <= c_test_vectors(2).rst_i;
+    wait for 100 ns;
+-- ! @brief generisemo random stanja
+    while(i < c_num_of_clocks) loop
+      uniform(seed1, seed2, x);
+      y := integer(floor(x * 16.0));
+      help := std_logic_vector(to_unsigned(y, help'length));
+      rw_i <= help(0);
+      burst_i <= help(1);
+      mem_i <= help(2);
+      rst_i <= help(3);
+      wait for 40 ns;
+    end loop;
     wait;
-  end process stimulus_proc;
+  end process;
 end arch;

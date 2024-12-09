@@ -53,7 +53,7 @@ end mem_ctrl;
 
 architecture arch of mem_ctrl is
   type t_state is
-        (idle, read1, read2, read3, read4, write);
+        (idle, read1, read2, read3, read4, read5, write);
   signal state_reg, state_next : t_state;
 begin
   -- ! @brief State register
@@ -92,12 +92,8 @@ begin
       when read3 =>
         state_next <= read4;
       when read4 =>
-        if burst_i = '1' then
-          state_next <= read1;
-        else
-          state_next <= idle;
-        end if;
-      when others =>
+        state_next <= read5;
+      when read5 =>
         state_next <= idle;
     end case;
   end process;
@@ -108,7 +104,6 @@ begin
     oe_o <= '0';
     case state_reg is
       when idle =>
-        null;
       when write =>
         we_o <= '1';
       when read1 =>
@@ -119,8 +114,8 @@ begin
         oe_o <= '1';
       when read4 =>
         oe_o <= '1';
-      when others =>
-        null;
+        when read5 =>
+        oe_o <= '1';
     end case;
   end process;
   -- ! @brief Mealy output logic process
@@ -133,9 +128,11 @@ begin
           we_me_o <= '1';
         end if;
       when write =>
-        we_me_o <= '1';
-      when others =>
-        we_me_o <= '0';
+      when read1 =>
+      when read2 =>
+      when read3 =>
+      when read4 =>
+      when read5 =>
     end case;
   end process;
 end arch;
