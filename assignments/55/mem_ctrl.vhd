@@ -95,7 +95,7 @@ begin
       when read2 =>
         if burst_i = '1' then
           state_next <= read3;
-        else 
+        else
           state_next <= read4;
         end if;
       when read3 =>
@@ -127,6 +127,8 @@ begin
     case state_reg is
       when idle =>
         -- Outputs remain inactive
+        oe_o <= '0';
+        we_o <= '0';
       when write =>
         we_o <= '1';
       when read1 | read2 | read3 | read4 =>
@@ -146,6 +148,7 @@ begin
       when write =>
       when read1 | read2 | read3 | read4 =>
         -- No write enable in read states
+        we_me_o <= '0';
     end case;
   end process;
 
