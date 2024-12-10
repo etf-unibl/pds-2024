@@ -62,7 +62,6 @@ begin
   -- ! @brief Next-state logic process implementing state transitions.
   process(state_reg, mem_i, rw_i, burst_i)
   begin
-    state_next <= state_reg;  -- ! Default: stay in the current state
     case state_reg is
       when idle =>
         if mem_i = '1' and rw_i = '1' then
