@@ -40,7 +40,6 @@ architecture arch of mem_ctrl_tb is
       rst_i   : in  std_logic;   -- ! Reset input
       mem_i   : in  std_logic;   -- ! Memory input
       rw_i    : in  std_logic;   -- ! Read/Write control signal
-      burst_i : in  std_logic;   -- ! Burst mode control signal
       oe_o    : out std_logic;   -- ! Output enable signal
       we_o    : out std_logic;   -- ! Write enable signal
       we_me_o : out std_logic    -- ! Memory write enable signal
@@ -57,8 +56,8 @@ architecture arch of mem_ctrl_tb is
   signal i : integer := 0;
 
   -- ! @brief Input and output signals for the DUT.
-  signal clk_i_test, rst_i_test, mem_i_test, rw_i_test, burst_i_test : std_logic;
-  signal oe_o_test, we_o_test, we_me_o_test                          : std_logic;
+  signal clk_i_test, rst_i_test, mem_i_test, rw_i_test : std_logic;
+  signal oe_o_test, we_o_test, we_me_o_test            : std_logic;
 
   -- ! @brief File handles for input and output data files.
   file input_buf  : text;  -- ! Input data file
@@ -73,7 +72,6 @@ begin
       rst_i   => rst_i_test,
       mem_i   => mem_i_test,
       rw_i    => rw_i_test,
-      burst_i => burst_i_test,
       oe_o    => oe_o_test,
       we_o    => we_o_test,
       we_me_o => we_me_o_test
@@ -101,7 +99,6 @@ begin
     variable write_col_to_output_buf : line;   -- ! Line written to output file
     variable val_mem_i : std_logic;            -- ! Input: Memory control signal
     variable val_rw_i  : std_logic;            -- ! Input: Read/Write control
-    variable val_burst_i : std_logic;          -- ! Input: Burst control
     variable val_oe_o : std_logic;             -- ! Expected Output Enable
     variable val_we_o : std_logic;             -- ! Expected Write Enable
     variable val_we_me_o : std_logic;          -- ! Expected Memory Write Enable
@@ -115,7 +112,7 @@ begin
 
     -- ! Write header to the output file.
     write(write_col_to_output_buf, string'
-    ("#mem_i_test,rw_i_test,burst_i_test,oe_actual,we_actual,we_me_actual,oe_o_test,we_o_test,we_me_o_test,result"));
+    ("#mem_i_test,rw_i_test,oe_actual,we_actual,we_me_actual,oe_o_test,we_o_test,we_me_o_test,result"));
     writeline(output_buf, write_col_to_output_buf);
 
     -- ! Loop through input file lines.
@@ -126,9 +123,6 @@ begin
       read(read_col_from_input_buf, val_comma);
       read(read_col_from_input_buf, val_rw_i, good_num);
       assert good_num report "Invalid value for rw_i_test";
-      read(read_col_from_input_buf, val_comma);
-      read(read_col_from_input_buf, val_burst_i, good_num);
-      assert good_num report "Invalid value for burst_i_test";
       read(read_col_from_input_buf, val_comma);
       read(read_col_from_input_buf, val_oe_o, good_num);
       assert good_num report "Invalid value for oe_actual";
@@ -142,15 +136,13 @@ begin
       -- ! Drive signals for DUT.
       mem_i_test <= val_mem_i;
       rw_i_test <= val_rw_i;
-      burst_i_test <= val_burst_i;
+
       wait for 200 ns;
 
       -- ! Write results to output file.
       write(write_col_to_output_buf, mem_i_test);
       write(write_col_to_output_buf, string'(","));
       write(write_col_to_output_buf, rw_i_test);
-      write(write_col_to_output_buf, string'(","));
-      write(write_col_to_output_buf, burst_i_test);
       write(write_col_to_output_buf, string'(","));
       write(write_col_to_output_buf, val_oe_o);
       write(write_col_to_output_buf, string'(","));

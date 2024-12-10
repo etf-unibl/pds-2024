@@ -31,7 +31,6 @@ entity mem_ctrl is
     rst_i   : in  std_logic;  -- ! Reset signal (active high)
     mem_i   : in  std_logic;  -- ! Memory access request signal
     rw_i    : in  std_logic;  -- ! Read/Write control signal
-    burst_i : in  std_logic;  -- ! Burst mode enable signal
     oe_o    : out std_logic;  -- ! Output enable signal
     we_o    : out std_logic;  -- ! Write enable signal
     we_me_o : out std_logic   -- ! Mealy-based write enable signal
@@ -42,7 +41,7 @@ end mem_ctrl;
 architecture arch of mem_ctrl is
 
   -- ! @brief State machine type representing the memory controller states.
-  type t_mc_sm_type is (idle, read1, read2, read3, read4, write);
+  type t_mc_sm_type is (idle, read, write);
 
   -- ! @brief Registers for current and next states of the state machine.
   signal state_reg, state_next : t_mc_sm_type;
@@ -60,13 +59,13 @@ begin
   end process;
 
   -- ! @brief Next-state logic process implementing state transitions.
-  process(state_reg, mem_i, rw_i, burst_i)
+  process(state_reg, mem_i, rw_i)
   begin
     state_next <= state_reg;  -- ! Default: stay in the current state
     case state_reg is
       when idle =>
         if mem_i = '1' and rw_i = '1' then
-          state_next <= read1;
+          state_next <= read;
         elsif mem_i = '1' and rw_i = '0' then
           state_next <= write;
         else
@@ -75,42 +74,18 @@ begin
       when write =>
         if mem_i = '1' then
           if rw_i = '1' then
-            state_next <= read1;
+            state_next <= read;
           else
             state_next <= write;
           end if;
         else
           state_next <= idle;
         end if;
-      when read1 =>
-        if burst_i = '1' then
-          state_next <= read2;
-        elsif mem_i = '1' and rw_i = '0' then
+      when read =>
+        if mem_i = '1' and rw_i = '0' then
           state_next <= write;
         elsif mem_i = '1' and rw_i = '1' then
-          state_next <= read1;
-        else
-          state_next <= idle;
-        end if;
-      when read2 =>
-        if burst_i = '1' then
-          state_next <= read3;
-        else 
-          state_next <= read4;
-        end if;
-      when read3 =>
-        if burst_i = '1' then
-          state_next <= read4;
-        else
-          state_next <= read1;
-        end if;
-      when read4 =>
-        if mem_i = '1' then
-          if rw_i = '1' then
-            state_next <= read1;
-          else
-            state_next <= write;
-          end if;
+          state_next <= read;
         else
           state_next <= idle;
         end if;
@@ -129,7 +104,7 @@ begin
         -- Outputs remain inactive
       when write =>
         we_o <= '1';
-      when read1 | read2 | read3 | read4 =>
+      when read =>
         oe_o <= '1';
     end case;
   end process;
@@ -148,7 +123,7 @@ begin
           end if;
         when write =>
           we_me_o <= '1';
-        when read1 | read2 | read3 | read4 =>
+        when read =>
           -- No write enable in read states
       end case;
     end if;
