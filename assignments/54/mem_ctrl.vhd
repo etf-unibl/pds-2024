@@ -35,28 +35,36 @@
 -- ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 -- OTHER DEALINGS IN THE SOFTWARE
 -----------------------------------------------------------------------------
+--! Use standard library
 library ieee;
+--! Use logic elements
 use ieee.std_logic_1164.all;
+
+--! @file mem_ctrl.vhd
+--! @brief Memory controller with read, write, and burst functionality.
 
 entity mem_ctrl is
   port (
-  clk_i   : in  std_logic;
-  rst_i   : in  std_logic;
-  mem_i   : in  std_logic;
-  rw_i    : in  std_logic;
-  burst_i : in  std_logic;
-  oe_o    : out std_logic;
-  we_o    : out std_logic;
-  we_me_o : out std_logic
+  clk_i   : in  std_logic; --! Clock input
+  rst_i   : in  std_logic; --! Reset input (active high)
+  mem_i   : in  std_logic; --! Memory enable input
+  rw_i    : in  std_logic; --! Read('1')/Write('0') control input
+  burst_i : in  std_logic; --! Burst mode enable input
+  oe_o    : out std_logic; --! Output enable signal
+  we_o    : out std_logic; --! Write enable signal (Moore output)
+  we_me_o : out std_logic  --! Write enable signal (Mealy output)
 );
 end mem_ctrl;
 
 architecture arch of mem_ctrl is
+  --! @brief Enumeration of FSM states
   type t_state is
         (idle, read1, read2, read3, read4, read5, write);
+  --! @brief Signal for the next state
   signal state_reg, state_next : t_state;
 begin
-  -- ! @brief State register
+  --! @brief State register
+  --! @details Handles state transitions based on clock and reset signals
   process(clk_i, rst_i)
   begin
     if rst_i = '1' then
@@ -65,7 +73,8 @@ begin
       state_reg <= state_next;
     end if;
   end process;
-  -- ! @brief Next-state logic
+
+  --! @brief Next-state logic
   process(state_reg, mem_i, rw_i, burst_i)
   begin
     case state_reg is
@@ -97,10 +106,12 @@ begin
         state_next <= idle;
     end case;
   end process;
-  -- ! @brief Output logic process (Moore outputs)
+
+  --! @brief Output logic process (Moore outputs)
+  --! @details Sets outputs based on the current state
   process(state_reg)
   begin
-    we_o <= '0';  -- Default value
+    we_o <= '0';  --! Default value
     oe_o <= '0';
     case state_reg is
       when idle =>
@@ -114,14 +125,16 @@ begin
         oe_o <= '1';
       when read4 =>
         oe_o <= '1';
-        when read5 =>
+      when read5 =>
         oe_o <= '1';
     end case;
   end process;
-  -- ! @brief Mealy output logic process
+
+  --! @brief Mealy output logic process
+  --! @details Computes outputs based on current state and inputs
   process(state_reg, mem_i, rw_i)
   begin
-    we_me_o <= '0';  -- Default value
+    we_me_o <= '0';  --! Default value
     case state_reg is
       when idle =>
         if (mem_i = '1') and (rw_i = '0') then

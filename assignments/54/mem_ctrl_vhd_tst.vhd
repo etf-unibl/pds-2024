@@ -40,13 +40,13 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.math_real.all;
 use ieee.math_real.all;
-use std.textio.all;
 use ieee.std_logic_textio.all;
+use std.textio.all;
 
 entity mem_ctrl_vhd_tst is
 end mem_ctrl_vhd_tst;
 architecture arch of mem_ctrl_vhd_tst is
--- ! @brief signals
+  --! @brief Signals
   signal burst_i : STD_LOGIC := '0';
   signal clk_i   : STD_LOGIC := '0';
   signal mem_i   : STD_LOGIC := '0';
@@ -68,29 +68,27 @@ architecture arch of mem_ctrl_vhd_tst is
    );
   end component;
   constant c_T : time := 20 ns;
-  constant c_num_of_clocks : integer := 500;
-  signal i : integer := 0;   -- loop variable
+  constant c_CLOCK_COUNT : integer := 500;
+  signal i : integer := 0;   --! loop variable
   file output_buf : text;
--- ! @brief Moguce proci kroz sva stanja rucno
-  type test_vector is record
+  type t_vector is record
       mem_i :  STD_LOGIC;
       rw_i :  STD_LOGIC;
       burst_i :  STD_LOGIC;
       rst_i :  STD_LOGIC;
-   end record;
--- ! @brief Comment for file-based testbench
-  type test_vector_array is array (natural range <>) of test_vector;
-  constant c_test_vectors : test_vector_array := (
-      ('1','0','0','0'), -- ! @brief write
-      ('1','1','0','0'), -- ! @brief read
-      ('1','1','1','0'), -- ! @brief burst
-      ('0','0','0','0'), -- ! @brief idle
-      ('1','1','1','1')  -- ! @brief reset
+   end record t_vector;
+  type t_vector_array is array (natural range <>) of t_vector;
+  constant c_test_vectors : t_vector_array := (
+      ('1','0','0','0'), --! write
+      ('1','1','0','0'), --! read
+      ('1','1','1','0'), --! burst
+      ('0','0','0','0'), --! idle
+      ('1','1','1','1')  --! reset
    );
 begin
   i1 : mem_ctrl
    port map (
--- ! @brief List connections between master ports and signals
+   --! @brief Enumerate the connections between the ports and the signals
    burst_i => burst_i,
    clk_i   => clk_i,
    mem_i   => mem_i,
@@ -106,24 +104,24 @@ begin
     wait for c_T/2;
     clk_i <= '1';
     wait for c_T/2;
-    if (i = c_num_of_clocks) then
+    if i = c_CLOCK_COUNT then
       file_close(output_buf);
       wait;
     else
       i <= i + 1;
     end if;
   end process clock_gen;
-  process(clk_i)
+  output : process(clk_i)
     variable write_col_to_output_buf : line;
     variable flag : boolean := true;
   begin
-    if (flag) then
+    if flag then
       file_open(output_buf, "C:\Users\Korisnik\Desktop\VHDL\Zadatak 4\data_files\mem_ctrl_data.csv", write_mode);
       write(write_col_to_output_buf, string'("we_o,we_me_o,oe_o,mem_i,rw_i,burst_i,rst_i"));
       writeline(output_buf, write_col_to_output_buf);
       flag := false;
     end if;
-    if (rising_edge(clk_i))then
+    if rising_edge(clk_i) then
       write(write_col_to_output_buf, we_o);
       write(write_col_to_output_buf, string'(","));
       write(write_col_to_output_buf, we_me_o);
@@ -139,7 +137,7 @@ begin
       write(write_col_to_output_buf, rst_i);
       writeline(output_buf, write_col_to_output_buf);
     end if;
-  end process;
+  end process output;
   stim_proc : process
     variable seed1 : positive;
     variable seed2 : positive;
@@ -147,7 +145,7 @@ begin
     variable y : integer;
     variable help : std_logic_vector(3 downto 0);
   begin
--- ! @brief Na pocetku rucno prodjemo kroz sva moguca stanja
+    --! @brief Manually going through all possible states
     wait for 30 ns;
     mem_i <= c_test_vectors(0).mem_i;
     rw_i <= c_test_vectors(0).rw_i;
@@ -164,8 +162,8 @@ begin
     burst_i <= c_test_vectors(2).burst_i;
     rst_i <= c_test_vectors(2).rst_i;
     wait for 100 ns;
--- ! @brief generisemo random stanja
-    while(i < c_num_of_clocks) loop
+    --! @brief Generate random states
+    while i < c_CLOCK_COUNT loop
       uniform(seed1, seed2, x);
       y := integer(floor(x * 16.0));
       help := std_logic_vector(to_unsigned(y, help'length));
@@ -176,5 +174,5 @@ begin
       wait for 40 ns;
     end loop;
     wait;
-  end process;
+  end process stim_proc;
 end arch;
