@@ -62,7 +62,6 @@ begin
   --! @brief Next-state logic process implementing state transitions.
   process(state_reg, mem_i, rw_i, burst_i)
   begin
-    state_next <= idle; --! Default next state
     case state_reg is
       when idle =>
         if mem_i = '1' then
@@ -114,18 +113,19 @@ begin
     oe_o <= '0';
     we_o <= '0';
     case state_reg is
+      when idle =>
+        if state_next = read1 then
+          oe_o <= '1'; -- Prelaz u read1
+        end if;
       when write =>
         we_o <= '1';
       when read1 | read2 | read3 | read4 =>
         oe_o <= '1';
-      when others =>
-        oe_o <= '0';
-        we_o <= '0';
     end case;
   end process;
 
   --! @brief Mealy output logic process generating `we_me_o` based on inputs and state.
-  process(state_reg, mem_i, rw_i, rst_i)
+  process(state_reg, mem_i, rw_i)
   begin
     we_me_o <= '0';  --! Default value
     case state_reg is

@@ -79,6 +79,7 @@ begin
       we_o    => we_o_test,
       we_me_o => we_me_o_test
     );
+
   --! @brief Reset signal initialization.
   rst_i_test <= '0';
   --! @brief Generate clock signal for the DUT.
@@ -110,11 +111,10 @@ begin
     variable val_comma : character;            --! Comma delimiter
     variable good_num : boolean;               --! Validity flag for parsed data
 
-  begin
-    wait for 300 ns; 
+  begin 
     -- Reset
     rst_i_test <= '1';
-    wait for 50 ns;
+    wait for c_CLOCK;
     rst_i_test <= '0';
     
     --! Open input and output files.
@@ -151,7 +151,7 @@ begin
       mem_i_test <= val_mem_i;
       rw_i_test <= val_rw_i;
       burst_i_test <= val_burst_i;
-      wait for 200 ns;
+      wait for c_CLOCK;
 
       --! Write results to output file.
       write(write_col_to_output_buf, mem_i_test);
