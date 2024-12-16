@@ -111,12 +111,12 @@ begin
     variable val_comma : character;            --! Comma delimiter
     variable good_num : boolean;               --! Validity flag for parsed data
 
-  begin 
+  begin
     -- Reset
     rst_i_test <= '1';
     wait for c_CLOCK;
     rst_i_test <= '0';
-    
+
     --! Open input and output files.
     file_open(input_buf, "..\..\data_files\mem_ctrl_input.csv", read_mode);
     file_open(output_buf, "..\..\data_files\mem_ctrl_output.csv", write_mode);

@@ -64,35 +64,43 @@ begin
   begin
     case state_reg is
       when idle =>
-        if mem_i = '1' and rw_i = '1' then
-          state_next <= read1;
-        elsif mem_i = '1' and rw_i = '0' then
-          state_next <= write;
+        if mem_i = '1' then 
+          if rw_i = '1' then
+            state_next <= read1;
+          else
+            state_next <= write;
+          end if;
         else
           state_next <= idle;
         end if;
       when write =>
-        if mem_i = '1' and rw_i = '1' then
-          state_next <= read1;
-        elsif mem_i = '1' and rw_i = '0' then
-          state_next <= write;
+        if mem_i = '1' then
+          if rw_i = '1' then
+            state_next <= read1;
+          else 
+            state_next <= state_reg;
+          end if;
         else
           state_next <= idle;
         end if;
       when read1 =>
         if burst_i = '1' then
-          if mem_i = '1' and rw_i = '1' then
-            state_next <= read2;
-          elsif mem_i = '1' and rw_i = '0' then
-            state_next <= write;
+          if mem_i = '1' then
+            if rw_i = '1' then
+              state_next <= read2;
+            else
+              state_next <= write;
+            end if;
           else
             state_next <= idle;
           end if;        
         else
-          if mem_i = '1' and rw_i = '1' then
-            state_next <= read1;
-          elsif mem_i = '1' and rw_i = '0' then
-            state_next <= write;
+          if mem_i = '1' then
+            if rw_i = '0' then
+              state_next <= write;
+            else 
+              state_next <= state_reg;
+            end if;
           else
             state_next <= idle;
           end if;
@@ -102,10 +110,12 @@ begin
       when read3 =>
         state_next <= read4;
       when read4 =>
-        if mem_i = '1' and rw_i = '1' then
-          state_next <= read1;
-        elsif mem_i = '1' and rw_i = '0' then
-          state_next <= write;
+        if mem_i = '1' then
+          if rw_i = '1' then
+            state_next <= read1;
+          else
+            state_next <= write;
+          end if;
         else
           state_next <= idle;
         end if;
@@ -139,21 +149,21 @@ begin
     we_me_o <= '0';  --! Default value
     case state_reg is
       when idle =>
-        if mem_i = '1' and rw_i = '0' and state_next = write then
+        if mem_i = '1' and rw_i = '0' then
           we_me_o <= '1';
         end if;
       when write =>          
-        if mem_i = '1' and rw_i = '0' and state_next = write then
+        if mem_i = '1' and rw_i = '0' then
           we_me_o <= '1';
         end if;
       when read1 =>
-        if mem_i = '1' and rw_i = '0'  and state_next = write then
+        if mem_i = '1' and rw_i = '0' then
           we_me_o <= '1';
         end if;
       when read2 =>
       when read3 =>
       when read4 =>
-        if mem_i = '1' and rw_i = '0'  and state_next = write then
+        if mem_i = '1' and rw_i = '0' then
           we_me_o <= '1';
         end if;
     end case;
