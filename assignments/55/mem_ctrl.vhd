@@ -128,21 +128,26 @@ begin
   process(state_reg, mem_i, rw_i, rst_i)
   begin
     we_me_o <= '0';  --! Default value
-    if rst_i = '1' then
-      we_me_o <= '0';
-    else
-      case state_reg is
-        when idle =>
-          if (mem_i = '1') and (rw_i = '0') then
-            we_me_o <= '1';
-          end if;
-        when write =>
+    case state_reg is
+      when idle =>
+        if (mem_i = '1') and (rw_i = '0') then
           we_me_o <= '1';
-        when read1 | read2 | read3 | read4 =>
-          -- No write enable in read states
-          we_me_o <= '0';
-      end case;
-    end if;
+        end if;
+      when write =>          
+        if (mem_i = '1') and (rw_i = '0') then
+          we_me_o <= '1';
+        end if;
+      when read1 =>
+        if (mem_i = '1') and (rw_i = '0') then
+          we_me_o <= '1';
+        end if;
+      when read2 =>
+      when read3 =>
+      when read4 =>
+        if (mem_i = '1') and (rw_i = '0') then
+          we_me_o <= '1';
+        end if;
+    end case;
   end process;
 
 end arch;
