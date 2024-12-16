@@ -64,30 +64,32 @@ begin
   begin
     case state_reg is
       when idle =>
-        if mem_i = '1' then
-          if rw_i = '1' then
-            state_next <= read1;
-          else
-            state_next <= write;
-          end if;
+        if mem_i = '1' and rw_i = '1' then
+          state_next <= read1;
+        elsif mem_i = '1' and rw_i = '0' then
+          state_next <= write;
+        else
+          state_next <= idle;
         end if;
       when write =>
-        if mem_i = '1' then
-          if rw_i = '1' then
-            state_next <= read1;
-          else
-            state_next <= write;
-          end if;
+        if mem_i = '1' and rw_i = '1' then
+          state_next <= read1;
+        elsif mem_i = '1' and rw_i = '0' then
+          state_next <= write;
         else
           state_next <= idle;
         end if;
       when read1 =>
         if burst_i = '1' then
           state_next <= read2;
-        elsif mem_i = '1' and rw_i = '0' then
-          state_next <= write;
         else
-          state_next <= idle;
+          if mem_i = '1' and rw_i = '1' then
+            state_next <= read1;
+          elsif mem_i = '1' and rw_i = '0' then
+            state_next <= write;
+          else
+            state_next <= idle;
+          end if;
         end if;
       when read2 =>
         state_next <= read3;
@@ -101,8 +103,6 @@ begin
         else
           state_next <= idle;
         end if;
-      when others =>
-        state_next <= idle;
     end case;
   end process;
 
@@ -114,9 +114,6 @@ begin
     we_o <= '0';
     case state_reg is
       when idle =>
-        if state_next = read1 then
-          oe_o <= '1'; -- Prelaz u read1
-        end if;
       when write =>
         we_o <= '1';
       when read1 =>
@@ -136,21 +133,21 @@ begin
     we_me_o <= '0';  --! Default value
     case state_reg is
       when idle =>
-        if (mem_i = '1') and (rw_i = '0') and state_next = write then
+        if (mem_i = '1') and (rw_i = '0') then
           we_me_o <= '1';
         end if;
       when write =>          
-        if (mem_i = '1') and (rw_i = '0') and state_next = write then
+        if (mem_i = '1') and (rw_i = '0') then
           we_me_o <= '1';
         end if;
       when read1 =>
-        if (mem_i = '1') and (rw_i = '0') and state_next = write then
+        if (mem_i = '1') and (rw_i = '0') then
           we_me_o <= '1';
         end if;
       when read2 =>
       when read3 =>
       when read4 =>
-        if (mem_i = '1') and (rw_i = '0') and state_next = write then
+        if (mem_i = '1') and (rw_i = '0') then
           we_me_o <= '1';
         end if;
     end case;

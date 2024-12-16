@@ -1,9 +1,0 @@
-#mem_i_test,rw_i_test,burst_i_test,oe_actual,we_actual,we_me_actual,oe_o_test,we_o_test,we_me_o_test,result
-0,0,0,0,0,0,0,0,0,OK
-0,0,1,0,0,0,0,0,0,OK
-0,1,0,0,0,0,0,0,0,OK
-0,1,1,0,0,0,0,0,0,OK
-1,0,0,0,1,1,0,1,1,OK
-1,0,1,0,1,1,0,1,1,OK
-1,1,0,1,0,0,1,0,0,OK
-1,1,1,1,0,0,1,0,0,OK
