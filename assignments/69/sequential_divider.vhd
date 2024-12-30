@@ -31,7 +31,7 @@ use ieee.numeric_std.all;
 --! @param b_i       8-bit divisor input
 --! @param q_o       8-bit quotient output
 --! @param r_o       8-bit remainder output
---! @param done_o    Signal indicating division completion
+--! @param ready_o    Signal indicating division completion
 entity sequential_divider is
   port(
     clk_i   : in  std_logic;                    --! Clock input
@@ -41,7 +41,7 @@ entity sequential_divider is
     b_i     : in  std_logic_vector(7 downto 0); --! Divisor input
     q_o     : out std_logic_vector(7 downto 0); --! Quotient output
     r_o     : out std_logic_vector(7 downto 0); --! Remainder output
-    done_o  : out std_logic                     --! Division done signal
+    ready_o  : out std_logic                     --! Division done signal
   );
 end sequential_divider;
 
@@ -87,7 +87,7 @@ begin
   --! @brief Determines the next state and updates the data path
   next_state_n_data_path : process(state_reg, n_reg, remainder_reg, bd_reg, d_reg, start_i, a_i, b_i, q_bit, remainder_tmp, n_next)
   begin
-    done_o         <= '0'; --! Default done signal value
+    ready_o         <= '0'; --! Default done signal value
     state_next     <= state_reg;
     remainder_next <= remainder_reg;
     bd_next        <= bd_reg;
@@ -101,7 +101,7 @@ begin
           --! Handle division by zero: set NaN for quotient and remainder
           bd_next        <= (7 downto 0 => '1');  --! NaN for quotient
           remainder_next <= (others => '1');      --! NaN for remainder
-          done_o         <= '1';                  --! Set done signal
+          ready_o         <= '1';                  --! Set done signal
           state_next     <= done;                 --! Transition to done state
         else
           if start_i = '1' then
@@ -132,7 +132,7 @@ begin
       --! Done state indicating division is complete
       when done =>
         state_next <= idle; --! Return to idle state for next division
-        done_o     <= '1';  --! Set done signal
+        ready_o     <= '1';  --! Set done signal
     end case;
   end process next_state_n_data_path;
 

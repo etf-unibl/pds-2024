@@ -80,8 +80,8 @@ set_output_delay -clock clk_i_virt -max 0.900 [get_ports {q_o[*]}]
 set_output_delay -clock clk_i_virt -min 0.820 [get_ports {q_o[*]}]
 set_output_delay -clock clk_i_virt -max 0.900 [get_ports {r_o[*]}]
 set_output_delay -clock clk_i_virt -min 0.820 [get_ports {r_o[*]}]
-set_output_delay -clock clk_i_virt -max 0.900 [get_ports {done_o}]
-set_output_delay -clock clk_i_virt -min 0.820 [get_ports {done_o}]
+set_output_delay -clock clk_i_virt -max 0.900 [get_ports {ready_o}]
+set_output_delay -clock clk_i_virt -min 0.820 [get_ports {ready_o}]
 
 #**************************************************************
 # Set Clock Groups
