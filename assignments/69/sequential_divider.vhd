@@ -25,7 +25,7 @@ use ieee.numeric_std.all;
 --! Entity declaration
 --! @brief Sequential divider entity
 --! @param clk_i     Input clock signal
---! @param reset_i   Input reset signal
+--! @param rst_i   Input reset signal
 --! @param start_i   Start signal to begin division
 --! @param a_i       8-bit dividend input
 --! @param b_i       8-bit divisor input
@@ -35,7 +35,7 @@ use ieee.numeric_std.all;
 entity sequential_divider is
   port(
     clk_i   : in  std_logic;                    --! Clock input
-    reset_i : in  std_logic;                    --! Reset input
+    rst_i : in  std_logic;                    --! Reset input
     start_i : in  std_logic;                    --! Start signal
     a_i     : in  std_logic_vector(7 downto 0); --! Dividend input
     b_i     : in  std_logic_vector(7 downto 0); --! Divisor input
@@ -66,9 +66,9 @@ begin
 
   --! Process to handle state and data register updates
   --! @brief Updates state and data registers on clock edge or reset
-  state_n_data_reg : process(clk_i, reset_i)
+  state_n_data_reg : process(clk_i, rst_i)
   begin
-    if reset_i = '1' then
+    if rst_i = '1' then
       state_reg     <= idle;
       remainder_reg <= (others => '0');
       bd_reg        <= (others => '0');
