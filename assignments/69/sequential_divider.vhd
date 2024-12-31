@@ -35,13 +35,13 @@ use ieee.numeric_std.all;
 entity sequential_divider is
   port(
     clk_i   : in  std_logic;                    --! Clock input
-    rst_i : in  std_logic;                    --! Reset input
+    rst_i   : in  std_logic;                    --! Reset input
     start_i : in  std_logic;                    --! Start signal
     a_i     : in  std_logic_vector(7 downto 0); --! Dividend input
     b_i     : in  std_logic_vector(7 downto 0); --! Divisor input
     q_o     : out std_logic_vector(7 downto 0); --! Quotient output
     r_o     : out std_logic_vector(7 downto 0); --! Remainder output
-    ready_o  : out std_logic                     --! Division done signal
+    ready_o : out std_logic                    --! Division ready signal
   );
 end sequential_divider;
 
@@ -87,7 +87,7 @@ begin
   --! @brief Determines the next state and updates the data path
   next_state_n_data_path : process(state_reg, n_reg, remainder_reg, bd_reg, d_reg, start_i, a_i, b_i, q_bit, remainder_tmp, n_next)
   begin
-    ready_o         <= '0'; --! Default done signal value
+    ready_o        <= '0'; --! Default ready signal value
     state_next     <= state_reg;
     remainder_next <= remainder_reg;
     bd_next        <= bd_reg;
@@ -101,7 +101,7 @@ begin
           --! Handle division by zero: set NaN for quotient and remainder
           bd_next        <= (7 downto 0 => '1');  --! NaN for quotient
           remainder_next <= (others => '1');      --! NaN for remainder
-          ready_o         <= '1';                  --! Set done signal
+          ready_o         <= '1';                  --! Set ready signal
           state_next     <= done;                 --! Transition to done state
         else
           if start_i = '1' then
@@ -111,6 +111,8 @@ begin
             d_next     <= unsigned(b_i);     --! Set divisor
             n_next     <= to_unsigned(9, 4); --! Set index counter
             state_next <= divide;            --! Transition to divide state
+          else
+            state_next <= idle;
           end if;
         end if;
 
@@ -121,18 +123,20 @@ begin
         n_next         <= n_reg-1;                               --! Decrease index
         if n_next = 1 then
           state_next <= last; --! Transition to last iteration state
+        else
+          state_next <= divide;
         end if;
       
       --! Last iteration state before completing division
       when last =>
         bd_next        <= bd_reg(6 downto 0) & q_bit; --! Final update of quotient
         remainder_next <= remainder_tmp;              --! Final update of remainder
-        state_next     <= done;                       --! Transition to done state
+        state_next     <= done;                       --! Transition to ready state
 
-      --! Done state indicating division is complete
+      --! done state indicating division is complete
       when done =>
-        state_next <= idle; --! Return to idle state for next division
-        ready_o     <= '1';  --! Set done signal
+        state_next <= idle;  --! Return to idle state for next division
+        ready_o     <= '1';  --! Set ready signal
     end case;
   end process next_state_n_data_path;
 
