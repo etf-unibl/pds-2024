@@ -149,21 +149,27 @@ begin
     we_me_o <= '0';  --! Default value
     case state_reg is
       when idle =>
-        if mem_i = '1' and rw_i = '0' then
+        if mem_i = '1' and rw_i = '0' and state_next = write then
           we_me_o <= '1';
         end if;
       when write =>          
-        if mem_i = '1' and rw_i = '0' then
+        if mem_i = '1' and rw_i = '0' and state_next = write then
           we_me_o <= '1';
         end if;
       when read1 =>
-        if mem_i = '1' and rw_i = '0' then
+        if mem_i = '1' and rw_i = '0' and state_next = write then
           we_me_o <= '1';
         end if;
       when read2 =>
+        if mem_i = '1' and rw_i = '0' and state_next = write then
+          we_me_o <= '1';
+        end if;
       when read3 =>
+        if mem_i = '1' and rw_i = '0' and state_next = write then
+          we_me_o <= '1';
+        end if;
       when read4 =>
-        if mem_i = '1' and rw_i = '0' then
+        if mem_i = '1' and rw_i = '0' and state_next = write then
           we_me_o <= '1';
         end if;
     end case;
