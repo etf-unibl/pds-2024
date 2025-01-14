@@ -153,7 +153,13 @@ begin
           we_me_o <= '1';
         end if;
       when read2 =>
+        if burst_i = '1' and mem_i = '1' and rw_i = '0' then
+          we_me_o <= '1';
+        end if;
       when read3 =>
+        if burst_i = '1' and mem_i = '1' and rw_i = '0' then
+          we_me_o <= '1';
+        end if;
       when read4 =>
         if mem_i = '1' and rw_i = '0' then
           we_me_o <= '1';
