@@ -78,28 +78,20 @@ begin
           if rw_i = '1' then
             state_next <= read1;
           else 
-            state_next <= state_reg;
+            state_next <= write;
           end if;
         else
           state_next <= idle;
         end if;
       when read1 =>
         if burst_i = '1' then
-          if mem_i = '1' then
-            if rw_i = '1' then
-              state_next <= read2;
-            else
-              state_next <= write;
-            end if;
-          else
-            state_next <= idle;
-          end if;        
+          state_next <= read2;        
         else
           if mem_i = '1' then
-            if rw_i = '0' then
-              state_next <= write;
+            if rw_i = '1' then
+              state_next <= read1;
             else 
-              state_next <= state_reg;
+              state_next <= write;
             end if;
           else
             state_next <= idle;
@@ -161,13 +153,7 @@ begin
           we_me_o <= '1';
         end if;
       when read2 =>
-        if mem_i = '1' and rw_i = '0' then
-          we_me_o <= '1';
-        end if;
       when read3 =>
-        if mem_i = '1' and rw_i = '0' then
-          we_me_o <= '1';
-        end if;
       when read4 =>
         if mem_i = '1' and rw_i = '0' then
           we_me_o <= '1';
