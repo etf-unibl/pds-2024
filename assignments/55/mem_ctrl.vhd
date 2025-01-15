@@ -64,7 +64,7 @@ begin
   begin
     case state_reg is
       when idle =>
-        if mem_i = '1' then 
+        if mem_i = '1' then
           if rw_i = '1' then
             state_next <= read1;
           else
@@ -77,7 +77,7 @@ begin
         if mem_i = '1' then
           if rw_i = '1' then
             state_next <= read1;
-          else 
+          else
             state_next <= write;
           end if;
         else
@@ -85,12 +85,12 @@ begin
         end if;
       when read1 =>
         if burst_i = '1' then
-          state_next <= read2;        
+          state_next <= read2;
         else
           if mem_i = '1' then
             if rw_i = '1' then
               state_next <= read1;
-            else 
+            else
               state_next <= write;
             end if;
           else
@@ -131,7 +131,7 @@ begin
       when read3 =>
         oe_o <= '1';
       when read4 =>
-        oe_o <= '1';        
+        oe_o <= '1';
     end case;
   end process;
 
@@ -144,7 +144,7 @@ begin
         if mem_i = '1' and rw_i = '0' then
           we_me_o <= '1';
         end if;
-      when write =>          
+      when write =>
         if mem_i = '1' and rw_i = '0' then
           we_me_o <= '1';
         end if;
