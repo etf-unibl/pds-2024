@@ -145,9 +145,6 @@ begin
           we_me_o <= '1';
         end if;
       when write =>
-        if mem_i = '1' and rw_i = '0' then
-          we_me_o <= '1';
-        end if;
       when read1 =>
         if mem_i = '1' and rw_i = '0' then
           we_me_o <= '1';
