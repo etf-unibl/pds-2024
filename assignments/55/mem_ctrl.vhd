@@ -136,23 +136,26 @@ begin
   end process;
 
   --! @brief Mealy output logic process generating `we_me_o` based on inputs and state.
-  process(state_reg, mem_i, rw_i)
+  process(state_reg, state_next)
   begin
     we_me_o <= '0';  --! Default value
     case state_reg is
       when idle =>
-        if mem_i = '1' and rw_i = '0' then
+        if state_next = write then
           we_me_o <= '1';
         end if;
       when write =>
+        if state_next = write then
+          we_me_o <= '1';
+        end if;
       when read1 =>
-        if mem_i = '1' and rw_i = '0' then
+        if state_next = write then
           we_me_o <= '1';
         end if;
       when read2 =>
       when read3 =>
       when read4 =>
-        if mem_i = '1' and rw_i = '0' then
+        if state_next = write then
           we_me_o <= '1';
         end if;
     end case;
