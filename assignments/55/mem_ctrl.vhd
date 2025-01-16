@@ -145,7 +145,7 @@ begin
           we_me_o <= '1';
         end if;
       when write =>
-          we_me_o <= '1';
+        we_me_o <= '1';
       when read1 =>
         if state_next = write then
           we_me_o <= '1';
