@@ -39,23 +39,23 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
--- ! @brief ovaj entitet implementira sekvencijonalni mnozac koriscenjem masina sa konacnim
--- ! brojem stanja
+--! @brief ovaj entitet implementira sekvencijonalni mnozac koriscenjem masina sa konacnim
+--! brojem stanja
 entity sequential_multiplier is
   port (
-    clk_i   : in  std_logic;  -- ! @param ulazni clock signal
-    rst_i   : in  std_logic;  -- ! @param ashroni reset
-    start_i : in  std_logic;  -- ! @param ulazni start signal
-    a_i     : in  std_logic_vector(7 downto 0);  -- ! @param ulazni vektor a
-    b_i     : in  std_logic_vector(7 downto 0);  -- ! @param ulazni vektor b
-    c_o     : out std_logic_vector(15 downto 0);  -- ! @param rezultat mnozenja
-    ready_o : out std_logic  -- ! @param spremnost da se prihvati ulaz
+    clk_i   : in  std_logic;  --! @param ulazni clock signal
+    rst_i   : in  std_logic;  --! @param ashroni reset
+    start_i : in  std_logic;  --! @param ulazni start signal
+    a_i     : in  std_logic_vector(7 downto 0);  --! @param ulazni vektor a
+    b_i     : in  std_logic_vector(7 downto 0);  --! @param ulazni vektor b
+    c_o     : out std_logic_vector(15 downto 0);  --! @param rezultat mnozenja
+    ready_o : out std_logic  --! @param spremnost da se prihvati ulaz
   );
 end sequential_multiplier;
--- ! @brief arhitektura sekvencijalnog mnozaca realizovanog preko RT metodologije,
--- ! struktura se sastoji od data path i control path,
--- ! data path cini skup registara u kojem se nalaze promenljive ulazne i izlazne
--- ! control path opisujemo state register, next-state logic i output logic
+--! @brief arhitektura sekvencijalnog mnozaca realizovanog preko RT metodologije,
+--! struktura se sastoji od data path i control path,
+--! data path cini skup registara u kojem se nalaze promenljive ulazne i izlazne
+--! control path opisujemo state register, next-state logic i output logic
 architecture arch of sequential_multiplier is
   constant c_WIDTH : integer := 8;
   type t_state is (idle, ab0, load, op);
@@ -67,7 +67,7 @@ architecture arch of sequential_multiplier is
   signal adder_out : unsigned(2*c_WIDTH-1 downto 0);
   signal sub_out : unsigned(c_WIDTH-1 downto 0);
 begin
-  -- ! @brief control path: state register
+  --! @brief control path: state register
   process(clk_i, rst_i)
   begin
     if rst_i = '1' then
@@ -76,7 +76,7 @@ begin
       state_reg <= state_next;
     end if;
   end process;
-  -- ! @brief control path: next state / output logic
+  --! @brief control path: next state / output logic
   process(state_reg, start_i, a_is_0, b_is_0, count_0)
   begin
     case state_reg is
@@ -110,11 +110,11 @@ begin
         end if;
     end case;
   end process;
-  -- ! @brief control path: output logic
+  --! @brief control path: output logic
   ready_o <= '1' when state_reg = idle else
              '1' when state_reg = op and start_i = '1' and count_0 = '1' else
              '0';
-  -- ! @brief data path: data register
+  --! @brief data path: data register
   process(clk_i, rst_i)
   begin
     if rst_i = '1' then
@@ -127,7 +127,7 @@ begin
       c_reg <= c_next;
     end if;
   end process;
-  -- ! @brief data path: routing multiplexer
+  --! @brief data path: routing multiplexer
   process(state_reg, a_reg, n_reg, c_reg, a_i, b_i, adder_out, sub_out)
   begin
     case state_reg is
@@ -149,13 +149,13 @@ begin
         c_next <= adder_out;
     end case;
   end process;
-  -- ! @brief data path: function units
+  --! @brief data path: function units
   adder_out <= "00000000" & a_reg + c_reg;
   sub_out <= n_reg - 1;
-  -- ! @brief data path: status
+  --! @brief data path: status
   a_is_0 <= '1' when a_i = "00000000" else '0';
   b_is_0 <= '1' when b_i = "00000000" else '0';
   count_0 <= '1' when n_next = "00000000" else '0';
-  -- ! @brief data path: output
+  --! @brief data path: output
   c_o <= std_logic_vector(c_reg);
 end arch;
