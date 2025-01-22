@@ -41,7 +41,7 @@ entity sequential_divider is
     b_i     : in  std_logic_vector(7 downto 0); --! Divisor input
     q_o     : out std_logic_vector(7 downto 0); --! Quotient output
     r_o     : out std_logic_vector(7 downto 0); --! Remainder output
-    ready_o : out std_logic                    --! Division ready signal
+    ready_o : out std_logic                     --! Division ready signal
   );
 end sequential_divider;
 
@@ -52,109 +52,157 @@ end sequential_divider;
 architecture arch of sequential_divider is
   --! State machine enumeration for division process
   --! @brief States of the divider machine
-  type t_state is (idle, divide, last, done);
+  type t_state is (idle, start, divide, done);
 
   --! Internal signal declarations
-  signal state_reg, state_next         : t_state;                      --! Current and next state
-  signal remainder_reg, remainder_next : unsigned(7 downto 0);         --! Remainder registers
-  signal bd_reg, bd_next               : std_logic_vector(7 downto 0); --! Dividend register
-  signal remainder_tmp                 : unsigned(7 downto 0);         --! Temporary remainder signal
-  signal d_reg, d_next                 : unsigned(7 downto 0);         --! Divisor register
-  signal n_reg, n_next                 : unsigned(3 downto 0);         --! Counter register
-  signal q_bit                         : std_logic;                    --! Single bit quotient
+  signal state_reg, state_next  : t_state;                      --! Current and next state
+  signal rem_reg, rem_next      : unsigned(7 downto 0);         --! Remainder registers
+  signal rem_t_reg, rem_t_next  : unsigned(8 downto 0);
+  signal div_reg, div_next      : unsigned(7 downto 0);         --! Dividend register
+  signal q_reg, q_next          : unsigned(7 downto 0);         --! Temporary remainder signal
+  signal b_reg, b_next          : unsigned(7 downto 0);         --! Divisor register
+  signal bit_c_reg, bit_c_next  : natural range 0 to 8;         --! Iteration counter
+  signal division_by_zero       : std_logic := '0';             --! Division by zero flag
+  signal ready_pulse            : std_logic := '0';
+  signal altb                   : std_logic := '0';             --! a_i is less than b_i
 begin
 
   --! Process to handle state and data register updates
   --! @brief Updates state and data registers on clock edge or reset
-  state_n_data_reg : process(clk_i, rst_i)
+  state_reg_control_path : process(clk_i, rst_i)
   begin
     if rst_i = '1' then
-      state_reg     <= idle;
-      remainder_reg <= (others => '0');
-      bd_reg        <= (others => '0');
-      d_reg         <= (others => '0');
-      n_reg         <= (others => '0');
+      state_reg   <= idle;
     elsif rising_edge(clk_i) then
-      state_reg     <= state_next;
-      remainder_reg <= remainder_next;
-      bd_reg        <= bd_next;
-      d_reg         <= d_next;
-      n_reg         <= n_next;
+      state_reg  <= state_next;
     end if;
-  end process state_n_data_reg;
+  end process state_reg_control_path;
 
   --! Process to compute the next state and perform data operations
   --! @brief Determines the next state and updates the data path
-  next_state_n_data_path : process(state_reg, n_reg, remainder_reg, bd_reg, d_reg, start_i, a_i, b_i, q_bit, remainder_tmp, n_next)
+  next_state_path : process(state_reg, start_i, bit_c_reg, b_i, a_i)
   begin
-    ready_o        <= '0'; --! Default ready signal value
-    state_next     <= state_reg;
-    remainder_next <= remainder_reg;
-    bd_next        <= bd_reg;
-    d_next         <= d_reg;
-    n_next         <= n_reg;
-
+    division_by_zero <= '0';
+    altb             <= '0';
     case state_reg is
       --! Initial idle state, waits for start signal to begin division
       when idle =>
-        if b_i = std_logic_vector(to_unsigned(0, 8)) then
-          --! Handle division by zero: set NaN for quotient and remainder
-          bd_next        <= (7 downto 0 => '1');  --! NaN for quotient
-          remainder_next <= (others => '1');      --! NaN for remainder
-          ready_o         <= '1';                  --! Set ready signal
-          state_next     <= done;                 --! Transition to done state
+        if start_i = '1' then
+          state_next  <= start;  --! Transition to start state
         else
-          if start_i = '1' then
-            --! Initialize registers and start division process
-            remainder_next <= (others => '0');
-            bd_next    <= a_i;               --! Set dividend
-            d_next     <= unsigned(b_i);     --! Set divisor
-            n_next     <= to_unsigned(9, 4); --! Set index counter
-            state_next <= divide;            --! Transition to divide state
+          state_next <= idle;
+        end if;
+      when start =>
+        if unsigned(b_i) = 0 then
+          division_by_zero <= '1';
+          state_next <= done;
+        else
+          division_by_zero <= '0';
+          if unsigned(a_i) < unsigned(b_i) then
+            altb <= '1';
+            state_next  <= done;
           else
-            state_next <= idle;
+            altb <= '0';
+            state_next <=  divide;
           end if;
         end if;
-
       --! Divide state where the long-division algorithm executes
       when divide =>
-        bd_next        <= bd_reg(6 downto 0) & q_bit;            --! Update dividend with quotient bit
-        remainder_next <= remainder_tmp(6 downto 0) & bd_reg(7); --! Update remainder
-        n_next         <= n_reg-1;                               --! Decrease index
-        if n_next = 1 then
-          state_next <= last; --! Transition to last iteration state
+        --! Decrement counter
+        if bit_c_reg = 0 then
+          state_next <= done;
         else
           state_next <= divide;
         end if;
-      
-      --! Last iteration state before completing division
-      when last =>
-        bd_next        <= bd_reg(6 downto 0) & q_bit; --! Final update of quotient
-        remainder_next <= remainder_tmp;              --! Final update of remainder
-        state_next     <= done;                       --! Transition to ready state
-
       --! done state indicating division is complete
       when done =>
-        state_next <= idle;  --! Return to idle state for next division
-        ready_o     <= '1';  --! Set ready signal
+        state_next  <= idle;  --! Return to idle state for next division
     end case;
-  end process next_state_n_data_path;
-
-  --! Process to compare remainder and divisor, and compute quotient bit
-  --! @brief Compares the remainder and divisor, updates quotient bit and remainder
-  comp_and_sub : process(remainder_reg, d_reg)
+  end process next_state_path;
+  --!
+  
+  data_reg : process(clk_i, rst_i)
   begin
-    if remainder_reg >= d_reg then
-      remainder_tmp <= remainder_reg - d_reg; --! Subtract divisor from remainder
-      q_bit         <= '1';                   --! Set quotient bit
-    else
-      remainder_tmp <= remainder_reg; --! No change to remainder
-      q_bit         <= '0';           --! Set quotient bit to 0
+    if rst_i = '1' then
+      rem_reg     <= (others => '0');
+      rem_t_reg   <= (others => '0');
+      div_reg     <= (others => '0');
+      q_reg       <= (others => '0');
+      b_reg       <= (others => '0');
+      bit_c_reg   <=  0;
+      ready_pulse <= '0';
+    elsif rising_edge(clk_i) then
+      rem_reg   <= rem_next;
+      rem_t_reg <= rem_t_next;
+      div_reg   <= div_next;
+      q_reg     <= q_next;
+      bit_c_reg <= bit_c_next;
+      b_reg     <= b_next;
+      if state_next = done then
+        ready_pulse <= '1';
+      else
+        ready_pulse <= '0';
+      end if;
     end if;
-  end process comp_and_sub;
-
+  end process data_reg;
+  
+  ready_o <= ready_pulse;
+  
+  data_path : process(state_reg, div_reg, q_reg, rem_reg, bit_c_reg, a_i, b_i, b_reg, rem_t_reg, rem_next, altb)
+  begin
+    --! Default assignments to avoid latch inference
+    rem_next   <= rem_reg;
+    rem_t_next <= rem_t_reg;
+    div_next   <= div_reg;
+    q_next     <= q_reg;
+    b_next     <= b_reg;
+    bit_c_next <= bit_c_reg;
+    case state_reg is
+      when idle   =>
+      when start  =>
+        --! Initialize registers and start division process
+        
+        if (division_by_zero = '1') then
+          rem_next    <= (others => '1');
+          q_next      <= (others => '1');
+        else
+          if (altb = '1') then
+            rem_next    <= unsigned(a_i);   --! Set remainder
+            q_next      <= (others => '0'); --! Set quotient
+          else
+            div_next    <= unsigned(a_i);   --! Set dividend
+            b_next      <= unsigned(b_i);   --! Set divisor
+            rem_next    <= (others => '0'); --! Set remainder
+            rem_t_next  <= (others => '0');
+            q_next      <= (others => '0'); --! Set quotient
+            bit_c_next  <= 8;               --! Set counter for 8-bit division
+          end if;
+        end if;
+      when divide =>
+        --! Perform long division
+        rem_t_next    <= unsigned(rem_next(7 downto 0) & div_reg(7));
+        if rem_t_reg(7 downto 0)  >= b_reg then
+          rem_next <= rem_t_reg(7 downto 0) - b_reg;
+          q_next   <= q_reg(6 downto 0) & '1';
+        else
+          rem_next <= rem_t_reg(7 downto 0);
+          q_next   <= q_reg(6 downto 0) & '0';       
+        end if;
+        div_next    <= div_reg(6 downto 0) & '0';
+        if bit_c_reg > 0 then
+            bit_c_next <= bit_c_reg - 1; -- Smanjujemo brojač samo ako je veći od 0
+        else
+            bit_c_next <= 0; -- Održavamo na 0 kako bismo izbegli negativne vrednosti
+        end if;
+      when done =>
+    end case;
+  end process data_path;
+  
   --! Output assignments
-  --! @brief Assigns final values to quotient and remainder outputs
-  q_o <= bd_reg;                          --! Output quotient
-  r_o <= std_logic_vector(remainder_reg); --! Output remainder
+  --! @brief Assigns final values to quotient and remainder outputs in done state
+  q_o <= std_logic_vector(q_reg) when (ready_o = '1') else 
+         (others => '0'); -- Default when ready_o = '0'
+  r_o <= std_logic_vector(rem_reg) when (ready_o = '1') else
+         (others => '0'); -- Default when ready_o = '0'
+
 end arch;
