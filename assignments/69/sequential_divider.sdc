@@ -117,3 +117,45 @@ set_false_path -from [get_ports {rst_i}] -to [all_registers]
 # Set Input Transition
 #**************************************************************
 
+
+
+#**************************************************************
+# Pin assignment
+#**************************************************************
+
+set_location_assignment PIN_AF14 -to clk_i
+set_location_assignment PIN_AA14 -to rst_i
+set_location_assignment PIN_AE12 -to start_i
+set_location_assignment PIN_AB12 -to a_i[0]
+set_location_assignment PIN_AC12 -to a_i[1]
+set_location_assignment PIN_AF9 -to a_i[2]
+set_location_assignment PIN_AF10 -to a_i[3]
+set_location_assignment PIN_AD11 -to a_i[4]
+set_location_assignment PIN_AD12 -to a_i[5]
+set_location_assignment PIN_AE11 -to a_i[6]
+set_location_assignment PIN_AC9 -to a_i[7]
+set_location_assignment PIN_AC18 -to b_i[0]
+set_location_assignment PIN_Y17 -to b_i[1]
+set_location_assignment PIN_AD17 -to b_i[2]
+set_location_assignment PIN_Y18 -to b_i[3]
+set_location_assignment PIN_AK16 -to b_i[4]
+set_location_assignment PIN_AK18 -to b_i[5]
+set_location_assignment PIN_AK19 -to b_i[6]
+set_location_assignment PIN_AJ19 -to b_i[7]
+set_location_assignment PIN_V16 -to q_o[0]
+set_location_assignment PIN_W16 -to q_o[1]
+set_location_assignment PIN_V17 -to q_o[2]
+set_location_assignment PIN_V18 -to q_o[3]
+set_location_assignment PIN_W17 -to q_o[4]
+set_location_assignment PIN_W19 -to q_o[5]
+set_location_assignment PIN_Y19 -to q_o[6]
+set_location_assignment PIN_W20 -to q_o[7]
+set_location_assignment PIN_AJ17 -to r_o[0]
+set_location_assignment PIN_AJ16 -to r_o[1]
+set_location_assignment PIN_AH18 -to r_o[2]
+set_location_assignment PIN_AH17 -to r_o[3]
+set_location_assignment PIN_AG16 -to r_o[4]
+set_location_assignment PIN_AE16 -to r_o[5]
+set_location_assignment PIN_AF16 -to r_o[6]
+set_location_assignment PIN_AG17 -to r_o[7]
+set_location_assignment PIN_Y21 -to ready_o
