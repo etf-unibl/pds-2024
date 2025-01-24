@@ -8,7 +8,7 @@
 --
 -- description:
 --
---   This file implements the logic of a Period counter.
+--   This file implements a testbench for the Fibonacci sequence generator
 --
 -----------------------------------------------------------------------------
 -- Copyright (c) 2024 Faculty of Electrical Engineering
