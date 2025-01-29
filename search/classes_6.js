@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['one_5fbit_5ffull_5fsubtractor_0',['one_bit_full_subtractor',['../classone__bit__full__subtractor.html',1,'']]]
+  ['nand2_5fgate_0',['nand2_gate',['../classnand2__gate.html',1,'']]]
 ];

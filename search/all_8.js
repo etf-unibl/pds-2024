@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['o1_0',['o1',['../classtest.html#a74f6a76e968e7d449131b2834733bbb8',1,'test']]],
-  ['o_5fagtb_1',['o_AGTB',['../classfour__bit__signed__comparator.html#a7ebb453b7659083efaf57708ed5088b4',1,'four_bit_signed_comparator']]],
-  ['o_5fc_2',['o_C',['../classfour__bit__full__subtractor.html#ac8a26a98a457b8cdb95c27a3d3521870',1,'four_bit_full_subtractor']]],
-  ['o_5fsub_3',['o_SUB',['../classfour__bit__full__subtractor.html#a71b38076ff3354ad6d2e16d507926f44',1,'four_bit_full_subtractor']]],
-  ['o_5fy_4',['o_Y',['../classdecoder__2__4.html#aa0f87e355bfc8ac4ad326300763c5eb7',1,'decoder_2_4']]],
-  ['one_5fbit_5ffull_5fsubtractor_5',['one_bit_full_subtractor',['../classone__bit__full__subtractor.html',1,'one_bit_full_subtractor'],['../classfour__bit__full__subtractor_1_1sub__arch.html#ab7842e904bc6f4b67c1e9026de78c3b3',1,'four_bit_full_subtractor.sub_arch.one_bit_full_subtractor()']]],
-  ['one_5fbit_5ffull_5fsubtractor_2evhd_6',['one_bit_full_subtractor.vhd',['../one__bit__full__subtractor_8vhd.html',1,'']]]
+  ['i1_0',['i1',['../classtest.html#aa132aee54c514de6f11268925c07948f',1,'test']]],
+  ['i_5fa_1',['i_A',['../classdecoder__2__4.html#a60a6852e563da5284f6a9690b8673fb5',1,'decoder_2_4.i_A()'],['../classfour__bit__full__subtractor.html#a2fba4853b7ff752759dd36417c0798b1',1,'four_bit_full_subtractor.i_A()'],['../classfour__bit__signed__comparator.html#a2fba4853b7ff752759dd36417c0798b1',1,'four_bit_signed_comparator.i_A()']]],
+  ['i_5fb_2',['i_B',['../classfour__bit__full__subtractor.html#aa98a3597a75d01dd0dc009e2f0e729aa',1,'four_bit_full_subtractor.i_B()'],['../classfour__bit__signed__comparator.html#aa98a3597a75d01dd0dc009e2f0e729aa',1,'four_bit_signed_comparator.i_B()']]],
+  ['i_5fc_3',['i_C',['../classfour__bit__full__subtractor.html#a90c86866301005aa729b69f2d1271988',1,'four_bit_full_subtractor']]],
+  ['i_5fe_4',['i_E',['../classdecoder__2__4.html#ad91911f1b57112ef54067f735c9e7bc5',1,'decoder_2_4']]],
+  ['ieee_5',['ieee',['../classdecoder__2__4.html#a0a6af6eef40212dbaf130d57ce711256',1,'decoder_2_4.ieee()'],['../classnand2__gate.html#a0a6af6eef40212dbaf130d57ce711256',1,'nand2_gate.ieee()'],['../classhamming__distance__unit.html#a0a6af6eef40212dbaf130d57ce711256',1,'hamming_distance_unit.ieee()'],['../classeight__bit__multiplier.html#a0a6af6eef40212dbaf130d57ce711256',1,'eight_bit_multiplier.ieee()'],['../classfour__bit__signed__comparator.html#a0a6af6eef40212dbaf130d57ce711256',1,'four_bit_signed_comparator.ieee()'],['../classone__bit__full__subtractor.html#a0a6af6eef40212dbaf130d57ce711256',1,'one_bit_full_subtractor.ieee()'],['../classfull__subtractor.html#a0a6af6eef40212dbaf130d57ce711256',1,'full_subtractor.ieee()'],['../classfour__bit__full__subtractor.html#a0a6af6eef40212dbaf130d57ce711256',1,'four_bit_full_subtractor.ieee()'],['../classtest.html#a0a6af6eef40212dbaf130d57ce711256',1,'test.ieee()']]],
+  ['input_6',['input',['../classone__bit__full__subtractor.html#afd45b56c892ad457256f9468da8a2e76',1,'one_bit_full_subtractor']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['process_5f0_0',['PROCESS_0',['../classeight__bit__multiplier_1_1arch.html#a81922edeab61a686c85128a9b1432fac',1,'eight_bit_multiplier::arch']]]
+  ['circuit_5flogic_0',['circuit_logic',['../classhamming__distance__unit_1_1arch.html#abd5abfd7e951862e0b94592e2803a37b',1,'hamming_distance_unit::arch']]]
 ];

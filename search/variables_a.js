@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['temp0_0',['temp0',['../classfour__bit__full__subtractor_1_1sub__arch.html#aeed929c18d95ecb76fc6d6f1b2b87eef',1,'four_bit_full_subtractor::sub_arch']]],
-  ['test_5finput_1',['test_input',['../classtest.html#a0b5a7bb4a0ae6f39e40e576278c43ace',1,'test']]],
-  ['test_5foutput_2',['test_output',['../classtest.html#af3455dbb8ecd8d933a9e8123d3f1d93a',1,'test']]]
+  ['std_5flogic_5f1164_0',['std_logic_1164',['../classtest.html#acd03516902501cd1c7296a98e22c6fcb',1,'test.std_logic_1164()'],['../classdecoder__2__4.html#acd03516902501cd1c7296a98e22c6fcb',1,'decoder_2_4.std_logic_1164()'],['../classfour__bit__full__subtractor.html#acd03516902501cd1c7296a98e22c6fcb',1,'four_bit_full_subtractor.std_logic_1164()'],['../classfull__subtractor.html#acd03516902501cd1c7296a98e22c6fcb',1,'full_subtractor.std_logic_1164()'],['../classone__bit__full__subtractor.html#acd03516902501cd1c7296a98e22c6fcb',1,'one_bit_full_subtractor.std_logic_1164()'],['../classfour__bit__signed__comparator.html#acd03516902501cd1c7296a98e22c6fcb',1,'four_bit_signed_comparator.std_logic_1164()'],['../classeight__bit__multiplier.html#acd03516902501cd1c7296a98e22c6fcb',1,'eight_bit_multiplier.std_logic_1164()'],['../classhamming__distance__unit.html#acd03516902501cd1c7296a98e22c6fcb',1,'hamming_distance_unit.std_logic_1164()'],['../classnand2__gate.html#acd03516902501cd1c7296a98e22c6fcb',1,'nand2_gate.std_logic_1164()']]]
 ];
