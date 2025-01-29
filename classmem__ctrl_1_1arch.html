@@ -80,6 +80,9 @@ $(function() {
   <div class="headertitle"><div class="title">arch Architecture Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Architecture implementing the memory controller logic.  
+ <a href="classmem__ctrl_1_1arch.html#details">More...</a></p>
 <b>Architecture &gt;&gt; </b><a class="el" href="classmem__ctrl_1_1arch.html">arch</a><br />
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="Processes" name="Processes"></a>
@@ -92,19 +95,34 @@ Processes</h2></td></tr>
 <tr class="memdesc:a727a4c3fa6bfe77f79496dec23afeee3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output logic process (Moore outputs)  <a href="#a727a4c3fa6bfe77f79496dec23afeee3"></a><br /></td></tr>
 <tr class="memitem:a7db4d3590eda2d9aec0f1c6e154c913b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmem__ctrl_1_1arch.html#a7db4d3590eda2d9aec0f1c6e154c913b">PROCESS_5</a>&#160;</td><td class="memItemRight" valign="bottom"><b> ( <b><b><a class="el" href="classmem__ctrl_1_1arch.html#ad1806f6cfc8ad7dc9f65dbb6ecba33e6">state_reg</a></b> <span class="vhdlchar"> </span></b> , <b><b><a class="el" href="classmem__ctrl.html#aa7d84cfc134c75e16d2331759267158d">mem_i</a></b> <span class="vhdlchar"> </span></b> , <b><b><a class="el" href="classmem__ctrl.html#ad92f4c30f64488d3a4dc5b98804e4fa1">rw_i</a></b> <span class="vhdlchar"> </span></b> )</b></td></tr>
 <tr class="memdesc:a7db4d3590eda2d9aec0f1c6e154c913b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default value.  <a href="#a7db4d3590eda2d9aec0f1c6e154c913b"></a><br /></td></tr>
+<tr class="memitem:a55ba982df6ab618fae663c3e91de5d70"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmem__ctrl_1_1arch.html#a55ba982df6ab618fae663c3e91de5d70">PROCESS_6</a>&#160;</td><td class="memItemRight" valign="bottom"><b> ( <b><b><a class="el" href="classmem__ctrl.html#ae8d3e5458b0e3cd523d6461463e36fe8">clk_i</a></b> <span class="vhdlchar"> </span></b> , <b><b><a class="el" href="classmem__ctrl.html#ab86c7a8eec3a8327e506892977f85708">rst_i</a></b> <span class="vhdlchar"> </span></b> )</b></td></tr>
+<tr class="memdesc:a55ba982df6ab618fae663c3e91de5d70"><td class="mdescLeft">&#160;</td><td class="mdescRight">State register process for updating the current state on clock edge.  <a href="#a55ba982df6ab618fae663c3e91de5d70"></a><br /></td></tr>
+<tr class="memitem:a38713347acd5c6bce1f21d817f07dfe1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmem__ctrl_1_1arch.html#a38713347acd5c6bce1f21d817f07dfe1">PROCESS_7</a>&#160;</td><td class="memItemRight" valign="bottom"><b> ( <b><b><a class="el" href="classmem__ctrl_1_1arch.html#ad1806f6cfc8ad7dc9f65dbb6ecba33e6">state_reg</a></b> <span class="vhdlchar"> </span></b> , <b><b><a class="el" href="classmem__ctrl.html#aa7d84cfc134c75e16d2331759267158d">mem_i</a></b> <span class="vhdlchar"> </span></b> , <b><b><a class="el" href="classmem__ctrl.html#ad92f4c30f64488d3a4dc5b98804e4fa1">rw_i</a></b> <span class="vhdlchar"> </span></b> , <b><b><a class="el" href="classmem__ctrl.html#a885e4ca53b89e6899e56a6e9154e0d43">burst_i</a></b> <span class="vhdlchar"> </span></b> )</b></td></tr>
+<tr class="memdesc:a38713347acd5c6bce1f21d817f07dfe1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Next-state logic process implementing state transitions.  <a href="#a38713347acd5c6bce1f21d817f07dfe1"></a><br /></td></tr>
+<tr class="memitem:a4c1ec0f95b46c99870a63daaa76944c1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmem__ctrl_1_1arch.html#a4c1ec0f95b46c99870a63daaa76944c1">PROCESS_8</a>&#160;</td><td class="memItemRight" valign="bottom"><b> ( <b><b><a class="el" href="classmem__ctrl_1_1arch.html#ad1806f6cfc8ad7dc9f65dbb6ecba33e6">state_reg</a></b> <span class="vhdlchar"> </span></b> )</b></td></tr>
+<tr class="memdesc:a4c1ec0f95b46c99870a63daaa76944c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moore output logic process generating outputs based on the current state.  <a href="#a4c1ec0f95b46c99870a63daaa76944c1"></a><br /></td></tr>
+<tr class="memitem:aef13d3f327ddf03f75db8c32fa2202f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmem__ctrl_1_1arch.html#aef13d3f327ddf03f75db8c32fa2202f2">PROCESS_9</a>&#160;</td><td class="memItemRight" valign="bottom"><b> ( <b><b><a class="el" href="classmem__ctrl_1_1arch.html#ad1806f6cfc8ad7dc9f65dbb6ecba33e6">state_reg</a></b> <span class="vhdlchar"> </span></b> , <b><b><a class="el" href="classmem__ctrl_1_1arch.html#aeaaabf450775d2d7defff345afa661c9">state_next</a></b> <span class="vhdlchar"> </span></b> )</b></td></tr>
+<tr class="memdesc:aef13d3f327ddf03f75db8c32fa2202f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mealy output logic process generating <code>we_me_o</code> based on inputs and state.  <a href="#aef13d3f327ddf03f75db8c32fa2202f2"></a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="Types" name="Types"></a>
 Types</h2></td></tr>
  <tr class="memitem:a24fedb7910c994f08b4a83651fb4911f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmem__ctrl_1_1arch.html#a24fedb7910c994f08b4a83651fb4911f">t_state</a> &#160;</td><td class="memItemRight" valign="bottom"><b><span class="vhdlchar">(</span><span class="vhdlchar"> </span><span class="vhdlchar">idle</span><span class="vhdlchar"> </span><span class="vhdlchar">,</span><span class="vhdlchar"> </span><span class="vhdlchar">read1</span><span class="vhdlchar"> </span><span class="vhdlchar">,</span><span class="vhdlchar"> </span><span class="vhdlchar">read2</span><span class="vhdlchar"> </span><span class="vhdlchar">,</span><span class="vhdlchar"> </span><span class="vhdlchar">read3</span><span class="vhdlchar"> </span><span class="vhdlchar">,</span><span class="vhdlchar"> </span><span class="vhdlchar">read4</span><span class="vhdlchar"> </span><span class="vhdlchar">,</span><span class="vhdlchar"> </span><span class="vhdlchar">read5</span><span class="vhdlchar"> </span><span class="vhdlchar">,</span><span class="vhdlchar"> </span><span class="vhdlchar">write</span><span class="vhdlchar"> </span><span class="vhdlchar">)</span><span class="vhdlchar"> </span></b></td></tr>
 <tr class="memdesc:a24fedb7910c994f08b4a83651fb4911f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumeration of FSM states.  <a href="#a24fedb7910c994f08b4a83651fb4911f"></a><br /></td></tr>
+<tr class="memitem:af0966ae8a3b86d9201820decf5a40a1d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmem__ctrl_1_1arch.html#af0966ae8a3b86d9201820decf5a40a1d">t_state_type</a> &#160;</td><td class="memItemRight" valign="bottom"><b><span class="vhdlchar">(</span><span class="vhdlchar"> </span><span class="vhdlchar">idle</span><span class="vhdlchar"> </span><span class="vhdlchar">,</span><span class="vhdlchar"> </span><span class="vhdlchar">read1</span><span class="vhdlchar"> </span><span class="vhdlchar">,</span><span class="vhdlchar"> </span><span class="vhdlchar">read2</span><span class="vhdlchar"> </span><span class="vhdlchar">,</span><span class="vhdlchar"> </span><span class="vhdlchar">read3</span><span class="vhdlchar"> </span><span class="vhdlchar">,</span><span class="vhdlchar"> </span><span class="vhdlchar">read4</span><span class="vhdlchar"> </span><span class="vhdlchar">,</span><span class="vhdlchar"> </span><span class="vhdlchar">write</span><span class="vhdlchar"> </span><span class="vhdlchar">)</span><span class="vhdlchar"> </span></b></td></tr>
+<tr class="memdesc:af0966ae8a3b86d9201820decf5a40a1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">State machine type representing the memory controller states.  <a href="#af0966ae8a3b86d9201820decf5a40a1d"></a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="Signals" name="Signals"></a>
 Signals</h2></td></tr>
  <tr class="memitem:ad1806f6cfc8ad7dc9f65dbb6ecba33e6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmem__ctrl_1_1arch.html#ad1806f6cfc8ad7dc9f65dbb6ecba33e6">state_reg</a> &#160;</td><td class="memItemRight" valign="bottom"><b><b><a class="el" href="classmem__ctrl_1_1arch.html#a24fedb7910c994f08b4a83651fb4911f">t_state</a></b> <span class="vhdlchar"> </span></b></td></tr>
 <tr class="memdesc:ad1806f6cfc8ad7dc9f65dbb6ecba33e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signal for the next state.  <a href="#ad1806f6cfc8ad7dc9f65dbb6ecba33e6"></a><br /></td></tr>
 <tr class="memitem:aeaaabf450775d2d7defff345afa661c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmem__ctrl_1_1arch.html#aeaaabf450775d2d7defff345afa661c9">state_next</a> &#160;</td><td class="memItemRight" valign="bottom"><b><b><a class="el" href="classmem__ctrl_1_1arch.html#a24fedb7910c994f08b4a83651fb4911f">t_state</a></b> <span class="vhdlchar"> </span></b></td></tr>
+<tr class="memitem:a55cad962ed048e3721aff729bb1d0858"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmem__ctrl_1_1arch.html#a55cad962ed048e3721aff729bb1d0858">state_reg</a> &#160;</td><td class="memItemRight" valign="bottom"><b><b><a class="el" href="classmem__ctrl_1_1arch.html#af0966ae8a3b86d9201820decf5a40a1d">t_state_type</a></b> <span class="vhdlchar"> </span></b></td></tr>
+<tr class="memdesc:a55cad962ed048e3721aff729bb1d0858"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers for current and next states of the state machine.  <a href="#a55cad962ed048e3721aff729bb1d0858"></a><br /></td></tr>
+<tr class="memitem:ac2ad6ae2d32c8960df45dbc79dc32677"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmem__ctrl_1_1arch.html#ac2ad6ae2d32c8960df45dbc79dc32677">state_next</a> &#160;</td><td class="memItemRight" valign="bottom"><b><b><a class="el" href="classmem__ctrl_1_1arch.html#af0966ae8a3b86d9201820decf5a40a1d">t_state_type</a></b> <span class="vhdlchar"> </span></b></td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Architecture implementing the memory controller logic. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a0c7302525d0781a9219366dd2c4c7ab2" name="a0c7302525d0781a9219366dd2c4c7ab2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0c7302525d0781a9219366dd2c4c7ab2">&#9670;&#160;</a></span>PROCESS_2()</h2>
 
@@ -271,9 +289,167 @@ Signals</h2></td></tr>
 
 </div>
 </div>
+<a id="a55ba982df6ab618fae663c3e91de5d70" name="a55ba982df6ab618fae663c3e91de5d70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55ba982df6ab618fae663c3e91de5d70">&#9670;&#160;</a></span>PROCESS_6()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"> <b><span class="vhdlchar"> </span></b> PROCESS_6</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><b><b><a class="el" href="classmem__ctrl.html#ae8d3e5458b0e3cd523d6461463e36fe8">clk_i</a></b> <span class="vhdlchar"> </span></b> <em></em> , </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><b><b><a class="el" href="classmem__ctrl.html#ab86c7a8eec3a8327e506892977f85708">rst_i</a></b> <span class="vhdlchar"> </span></b> <em></em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">Process</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>State register process for updating the current state on clock edge. </p>
+
+</div>
+</div>
+<a id="a38713347acd5c6bce1f21d817f07dfe1" name="a38713347acd5c6bce1f21d817f07dfe1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38713347acd5c6bce1f21d817f07dfe1">&#9670;&#160;</a></span>PROCESS_7()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"> <b><span class="vhdlchar"> </span></b> PROCESS_7</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><b><b><a class="el" href="classmem__ctrl_1_1arch.html#ad1806f6cfc8ad7dc9f65dbb6ecba33e6">state_reg</a></b> <span class="vhdlchar"> </span></b> <em></em> , </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><b><b><a class="el" href="classmem__ctrl.html#aa7d84cfc134c75e16d2331759267158d">mem_i</a></b> <span class="vhdlchar"> </span></b> <em></em> , </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><b><b><a class="el" href="classmem__ctrl.html#ad92f4c30f64488d3a4dc5b98804e4fa1">rw_i</a></b> <span class="vhdlchar"> </span></b> <em></em> , </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><b><b><a class="el" href="classmem__ctrl.html#a885e4ca53b89e6899e56a6e9154e0d43">burst_i</a></b> <span class="vhdlchar"> </span></b> <em></em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">Process</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Next-state logic process implementing state transitions. </p>
+
+</div>
+</div>
+<a id="a4c1ec0f95b46c99870a63daaa76944c1" name="a4c1ec0f95b46c99870a63daaa76944c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c1ec0f95b46c99870a63daaa76944c1">&#9670;&#160;</a></span>PROCESS_8()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"> <b><span class="vhdlchar"> </span></b> PROCESS_8</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><b><b><a class="el" href="classmem__ctrl_1_1arch.html#ad1806f6cfc8ad7dc9f65dbb6ecba33e6">state_reg</a></b> <span class="vhdlchar"> </span></b> <em></em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">Process</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moore output logic process generating outputs based on the current state. </p>
+
+</div>
+</div>
+<a id="aef13d3f327ddf03f75db8c32fa2202f2" name="aef13d3f327ddf03f75db8c32fa2202f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef13d3f327ddf03f75db8c32fa2202f2">&#9670;&#160;</a></span>PROCESS_9()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"> <b><span class="vhdlchar"> </span></b> PROCESS_9</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><b><b><a class="el" href="classmem__ctrl_1_1arch.html#ad1806f6cfc8ad7dc9f65dbb6ecba33e6">state_reg</a></b> <span class="vhdlchar"> </span></b> <em></em> , </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><b><b><a class="el" href="classmem__ctrl_1_1arch.html#aeaaabf450775d2d7defff345afa661c9">state_next</a></b> <span class="vhdlchar"> </span></b> <em></em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">Process</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Mealy output logic process generating <code>we_me_o</code> based on inputs and state. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="aeaaabf450775d2d7defff345afa661c9" name="aeaaabf450775d2d7defff345afa661c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeaaabf450775d2d7defff345afa661c9">&#9670;&#160;</a></span>state_next</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aeaaabf450775d2d7defff345afa661c9">&#9670;&#160;</a></span>state_next <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -294,8 +470,30 @@ Signals</h2></td></tr>
 
 </div>
 </div>
+<a id="ac2ad6ae2d32c8960df45dbc79dc32677" name="ac2ad6ae2d32c8960df45dbc79dc32677"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2ad6ae2d32c8960df45dbc79dc32677">&#9670;&#160;</a></span>state_next <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmem__ctrl_1_1arch.html#ac2ad6ae2d32c8960df45dbc79dc32677">state_next</a> <b><b><a class="el" href="classmem__ctrl_1_1arch.html#af0966ae8a3b86d9201820decf5a40a1d">t_state_type</a></b> <span class="vhdlchar"> </span></b> </td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">Signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ad1806f6cfc8ad7dc9f65dbb6ecba33e6" name="ad1806f6cfc8ad7dc9f65dbb6ecba33e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1806f6cfc8ad7dc9f65dbb6ecba33e6">&#9670;&#160;</a></span>state_reg</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1806f6cfc8ad7dc9f65dbb6ecba33e6">&#9670;&#160;</a></span>state_reg <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -315,6 +513,30 @@ Signals</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Signal for the next state. </p>
+
+</div>
+</div>
+<a id="a55cad962ed048e3721aff729bb1d0858" name="a55cad962ed048e3721aff729bb1d0858"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55cad962ed048e3721aff729bb1d0858">&#9670;&#160;</a></span>state_reg <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmem__ctrl_1_1arch.html#a55cad962ed048e3721aff729bb1d0858">state_reg</a> <b><b><a class="el" href="classmem__ctrl_1_1arch.html#af0966ae8a3b86d9201820decf5a40a1d">t_state_type</a></b> <span class="vhdlchar"> </span></b> </td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">Signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Registers for current and next states of the state machine. </p>
 
 </div>
 </div>
@@ -342,8 +564,33 @@ Signals</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this design unit was generated from the following file:<ul>
-<li>54/<a class="el" href="mem__ctrl_8vhd.html">mem_ctrl.vhd</a></li>
+<a id="af0966ae8a3b86d9201820decf5a40a1d" name="af0966ae8a3b86d9201820decf5a40a1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0966ae8a3b86d9201820decf5a40a1d">&#9670;&#160;</a></span>t_state_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmem__ctrl_1_1arch.html#af0966ae8a3b86d9201820decf5a40a1d">t_state_type</a> <b><span class="vhdlchar">(</span><span class="vhdlchar"> </span><span class="vhdlchar">idle</span><span class="vhdlchar"> </span><span class="vhdlchar">,</span><span class="vhdlchar"> </span><span class="vhdlchar">read1</span><span class="vhdlchar"> </span><span class="vhdlchar">,</span><span class="vhdlchar"> </span><span class="vhdlchar">read2</span><span class="vhdlchar"> </span><span class="vhdlchar">,</span><span class="vhdlchar"> </span><span class="vhdlchar">read3</span><span class="vhdlchar"> </span><span class="vhdlchar">,</span><span class="vhdlchar"> </span><span class="vhdlchar">read4</span><span class="vhdlchar"> </span><span class="vhdlchar">,</span><span class="vhdlchar"> </span><span class="vhdlchar">write</span><span class="vhdlchar"> </span><span class="vhdlchar">)</span><span class="vhdlchar"> </span></b> </td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">Type</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>State machine type representing the memory controller states. </p>
+
+</div>
+</div>
+<hr/>The documentation for this design unit was generated from the following files:<ul>
+<li>54/<a class="el" href="54_2mem__ctrl_8vhd.html">mem_ctrl.vhd</a></li>
+<li>55/<a class="el" href="55_2mem__ctrl_8vhd.html">mem_ctrl.vhd</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
