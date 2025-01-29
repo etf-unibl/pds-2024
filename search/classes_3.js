@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['eight_5fbit_5fmultiplier_0',['eight_bit_multiplier',['../classeight__bit__multiplier.html',1,'']]]
+  ['decoder_5f2_5f4_0',['decoder_2_4',['../classdecoder__2__4.html',1,'']]]
 ];
