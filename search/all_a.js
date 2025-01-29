@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y_5fo_0',['Y_o',['../classnand2__gate.html#aa9360d46d1f24cd4f36be84ccdbb47b4',1,'nand2_gate']]]
+  ['res_5fo_0',['RES_o',['../classeight__bit__multiplier.html#a99587f97eac9328ba0a0f0fcebcad414',1,'eight_bit_multiplier']]]
 ];
