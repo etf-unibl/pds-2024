@@ -1,15 +1,17 @@
 var searchData=
 [
-  ['t_5fstate_0',['t_state',['../classmem__ctrl_1_1arch.html#a24fedb7910c994f08b4a83651fb4911f',1,'mem_ctrl.arch.t_state()'],['../classdual__edge__detector_1_1arch.html#a6e8bf7b6e6d2938f0309bb2645a89db6',1,'dual_edge_detector.arch.t_state()']]],
-  ['t_5fstate_5ftype_1',['t_state_type',['../classmem__ctrl_1_1arch.html#af0966ae8a3b86d9201820decf5a40a1d',1,'mem_ctrl::arch']]],
-  ['t_5fstates_5ftype_2',['t_states_type',['../classmanchester__encoder_1_1arch.html#a1f3a4d013bf00e26adcae58589f42c46',1,'manchester_encoder::arch']]],
-  ['t_5fvector_3',['t_vector',['../classmem__ctrl__vhd__tst_1_1arch.html#a6d602b4bbe92ee62eed2ae80ae7e6381',1,'mem_ctrl_vhd_tst::arch']]],
-  ['t_5fvector_5farray_4',['t_vector_array',['../classmem__ctrl__vhd__tst_1_1arch.html#abb1a629abb0ff66b565f949599ce46e7',1,'mem_ctrl_vhd_tst::arch']]],
-  ['temp0_5',['temp0',['../classfour__bit__full__subtractor_1_1sub__arch.html#aeed929c18d95ecb76fc6d6f1b2b87eef',1,'four_bit_full_subtractor::sub_arch']]],
-  ['test_6',['test',['../classtest.html',1,'']]],
-  ['test_2evhd_7',['test.vhd',['../14_2test_8vhd.html',1,'(Global Namespace)'],['../15_2test_8vhd.html',1,'(Global Namespace)'],['../18_2test_8vhd.html',1,'(Global Namespace)'],['../19_2test_8vhd.html',1,'(Global Namespace)'],['../7_2test_8vhd.html',1,'(Global Namespace)'],['../9_2test_8vhd.html',1,'(Global Namespace)']]],
-  ['test_5farch_8',['test_arch',['../classtest_1_1test__arch.html',1,'test']]],
-  ['test_5finput_9',['test_input',['../classtest.html#a0b5a7bb4a0ae6f39e40e576278c43ace',1,'test']]],
-  ['test_5foutput_10',['test_output',['../classtest.html#af3455dbb8ecd8d933a9e8123d3f1d93a',1,'test']]],
-  ['textio_11',['textio',['../classmem__ctrl__vhd__tst.html#aa8c4e25998323a84db5b1fa701b92fcb',1,'mem_ctrl_vhd_tst']]]
+  ['r_5fo_0',['r_o',['../classsequential__divider.html#ac3992e2d3aee38edf6102ae0d9ef0393',1,'sequential_divider']]],
+  ['ready_5fo_1',['ready_o',['../classsequential__divider.html#a1eee7aa1c7736b4fef002293cec8af26',1,'sequential_divider.ready_o()'],['../classleading__zero__counter.html#a1eee7aa1c7736b4fef002293cec8af26',1,'leading_zero_counter.ready_o()']]],
+  ['ready_5fpulse_2',['ready_pulse',['../classsequential__divider_1_1arch.html#a4c8a9bfe5675e529f043f333e07fc648',1,'sequential_divider::arch']]],
+  ['rem_5fnext_3',['rem_next',['../classsequential__divider_1_1arch.html#a136860fce3dcce80961dc8ba06358806',1,'sequential_divider::arch']]],
+  ['rem_5freg_4',['rem_reg',['../classsequential__divider_1_1arch.html#ab9dcf9a0d02aa8f09c1cac680b56951f',1,'sequential_divider::arch']]],
+  ['rem_5ft_5fnext_5',['rem_t_next',['../classsequential__divider_1_1arch.html#a82afd3db17855d9dc3724dea61c996ca',1,'sequential_divider::arch']]],
+  ['rem_5ft_5freg_6',['rem_t_reg',['../classsequential__divider_1_1arch.html#acc30eadff05cea5cbbdc5bef7fd3a142',1,'sequential_divider::arch']]],
+  ['req_5fi_7',['REQ_i',['../classdual__code__priority__encoder.html#ade10fdcacb3c7680c88e0ebe54e3d103',1,'dual_code_priority_encoder']]],
+  ['req_5fint_8',['req_int',['../classdual__code__priority__encoder_1_1arch.html#aa149f803f61aa925df1df9928c702168',1,'dual_code_priority_encoder::arch']]],
+  ['res_5fo_9',['RES_o',['../classeight__bit__multiplier.html#a99587f97eac9328ba0a0f0fcebcad414',1,'eight_bit_multiplier']]],
+  ['rst_5fi_10',['rst_i',['../classmem__ctrl.html#ab86c7a8eec3a8327e506892977f85708',1,'mem_ctrl.rst_i()'],['../classmem__ctrl__vhd__tst_1_1arch.html#adb0725a098af43d68000090b3cb0cef6',1,'mem_ctrl_vhd_tst.arch.rst_i()'],['../classdual__edge__detector.html#ab86c7a8eec3a8327e506892977f85708',1,'dual_edge_detector.rst_i()'],['../classmanchester__encoder.html#ab86c7a8eec3a8327e506892977f85708',1,'manchester_encoder.rst_i()'],['../classsequential__divider.html#ab86c7a8eec3a8327e506892977f85708',1,'sequential_divider.rst_i()'],['../classleading__zero__counter.html#ab86c7a8eec3a8327e506892977f85708',1,'leading_zero_counter.rst_i()']]],
+  ['rst_5fi_7e3_11',['rst_i~3',['../classmem__ctrl__vhd__tst_1_1arch.html#a77ef1077d34b00122086c3cb6ac1b418',1,'mem_ctrl_vhd_tst::arch']]],
+  ['rw_5fi_12',['rw_i',['../classmem__ctrl.html#ad92f4c30f64488d3a4dc5b98804e4fa1',1,'mem_ctrl.rw_i()'],['../classmem__ctrl__vhd__tst_1_1arch.html#afd840bf9d2a4920c737ce0fcbb7fc899',1,'mem_ctrl_vhd_tst.arch.rw_i()']]],
+  ['rw_5fi_7e1_13',['rw_i~1',['../classmem__ctrl__vhd__tst_1_1arch.html#ae167acd4ba33f0764f9ddd1b88159b45',1,'mem_ctrl_vhd_tst::arch']]]
 ];

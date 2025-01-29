@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['output_0',['output',['../classmem__ctrl__vhd__tst_1_1arch.html#a8127140f46fd716872ced902408fdde1',1,'mem_ctrl_vhd_tst::arch']]]
+  ['next_5fstate_5fpath_0',['next_state_path',['../classsequential__divider_1_1arch.html#a328c2e233e9526e9d4cb96a2ac91c6bf',1,'sequential_divider::arch']]]
 ];

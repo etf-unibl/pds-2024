@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['y_5fo_0',['y_o',['../classmanchester__encoder.html#aedcf1485d2cff9a24e6f43f03c362565',1,'manchester_encoder']]],
-  ['y_5fo_1',['Y_o',['../classhamming__distance__unit.html#ad491ebb77a7fa4a5ec9e2df06d2edc42',1,'hamming_distance_unit.Y_o()'],['../classnand2__gate.html#aa9360d46d1f24cd4f36be84ccdbb47b4',1,'nand2_gate.Y_o()']]]
+  ['v_5fi_0',['v_i',['../classmanchester__encoder.html#ae3d189541fe5918f1c92c3561e8d87e4',1,'manchester_encoder']]],
+  ['valid1_5fo_1',['VALID1_o',['../classdual__code__priority__encoder.html#a7e1c341805c874b2aa4c6c5254dff775',1,'dual_code_priority_encoder']]],
+  ['valid2_5fo_2',['VALID2_o',['../classdual__code__priority__encoder.html#a8ae25a9257cdf1ca7183ceb9c570e6de',1,'dual_code_priority_encoder']]]
 ];
