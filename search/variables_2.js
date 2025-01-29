@@ -6,5 +6,7 @@ var searchData=
   ['c_5fb_3',['c_B',['../classcomparator_1_1arch.html#ae560873ce3fd53bd3a5f48a5d22740d3',1,'comparator::arch']]],
   ['c_5fin_4',['C_in',['../classfull__subtractor.html#ac8243cbba35f8ed4c281990fcbe499c1',1,'full_subtractor']]],
   ['c_5fout_5',['C_out',['../classfull__subtractor.html#a5958a48fe57cc830288d306c2ca0fd08',1,'full_subtractor']]],
-  ['comparator_6',['comparator',['../classsigned__to__sign__magnitude__converter_1_1arch.html#a4a7c60cf26a49237b2c7d4ff0fb59b2b',1,'signed_to_sign_magnitude_converter::arch']]]
+  ['code1_5fo_6',['CODE1_o',['../classdual__code__priority__encoder.html#a876c1f2d3e96fda3c0667d287c147435',1,'dual_code_priority_encoder']]],
+  ['code2_5fo_7',['CODE2_o',['../classdual__code__priority__encoder.html#a559803c130f43376f25fb317ccadd3ae',1,'dual_code_priority_encoder']]],
+  ['comparator_8',['comparator',['../classsigned__to__sign__magnitude__converter_1_1arch.html#a4a7c60cf26a49237b2c7d4ff0fb59b2b',1,'signed_to_sign_magnitude_converter::arch']]]
 ];
