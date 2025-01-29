@@ -10,7 +10,7 @@ var searchData=
   ['c_5ft_7',['c_T',['../classmem__ctrl__vhd__tst_1_1arch.html#a780f9dc482240ab02d311a9a58f6c87f',1,'mem_ctrl_vhd_tst::arch']]],
   ['c_5ftest_5fvectors_8',['c_test_vectors',['../classmem__ctrl__vhd__tst_1_1arch.html#a32639874c2b7f1ecc9fa7a2964ae2e50',1,'mem_ctrl_vhd_tst::arch']]],
   ['circuit_5flogic_9',['circuit_logic',['../classhamming__distance__unit_1_1arch.html#abd5abfd7e951862e0b94592e2803a37b',1,'hamming_distance_unit::arch']]],
-  ['clk_5fi_10',['clk_i',['../classmem__ctrl.html#ae8d3e5458b0e3cd523d6461463e36fe8',1,'mem_ctrl.clk_i()'],['../classmem__ctrl__vhd__tst_1_1arch.html#a41f259fe9f0ef66e4e2e754e84102719',1,'mem_ctrl_vhd_tst.arch.clk_i()'],['../classdual__edge__detector.html#ae8d3e5458b0e3cd523d6461463e36fe8',1,'dual_edge_detector.clk_i()']]],
+  ['clk_5fi_10',['clk_i',['../classmem__ctrl.html#ae8d3e5458b0e3cd523d6461463e36fe8',1,'mem_ctrl.clk_i()'],['../classmem__ctrl__vhd__tst_1_1arch.html#a41f259fe9f0ef66e4e2e754e84102719',1,'mem_ctrl_vhd_tst.arch.clk_i()'],['../classdual__edge__detector.html#ae8d3e5458b0e3cd523d6461463e36fe8',1,'dual_edge_detector.clk_i()'],['../classmanchester__encoder.html#ae8d3e5458b0e3cd523d6461463e36fe8',1,'manchester_encoder.clk_i()']]],
   ['clock_5fgen_11',['clock_gen',['../classmem__ctrl__vhd__tst_1_1arch.html#a851d26c9133a1b47f44f6bb47e116f28',1,'mem_ctrl_vhd_tst::arch']]],
   ['code1_5fo_12',['CODE1_o',['../classdual__code__priority__encoder.html#a876c1f2d3e96fda3c0667d287c147435',1,'dual_code_priority_encoder']]],
   ['code2_5fo_13',['CODE2_o',['../classdual__code__priority__encoder.html#a559803c130f43376f25fb317ccadd3ae',1,'dual_code_priority_encoder']]],
