@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nand2_5fgate_0',['nand2_gate',['../classnand2__gate.html',1,'']]]
+  ['hamming_5fdistance_5funit_0',['hamming_distance_unit',['../classhamming__distance__unit.html',1,'']]]
 ];

@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['sel_5farch_0',['sel_arch',['../classone__bit__full__subtractor_1_1sel__arch.html',1,'one_bit_full_subtractor']]],
-  ['signed_5fto_5fsign_5fmagnitude_5fconverter_1',['signed_to_sign_magnitude_converter',['../classsigned__to__sign__magnitude__converter.html',1,'']]],
-  ['sub_5farch_2',['sub_arch',['../classfour__bit__full__subtractor_1_1sub__arch.html',1,'four_bit_full_subtractor']]]
+  ['one_5fbit_5ffull_5fsubtractor_0',['one_bit_full_subtractor',['../classone__bit__full__subtractor.html',1,'']]]
 ];
