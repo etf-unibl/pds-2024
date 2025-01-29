@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['y_5fo_0',['Y_o',['../classhamming__distance__unit.html#ad491ebb77a7fa4a5ec9e2df06d2edc42',1,'hamming_distance_unit.Y_o()'],['../classnand2__gate.html#aa9360d46d1f24cd4f36be84ccdbb47b4',1,'nand2_gate.Y_o()']]]
+  ['valid1_5fo_0',['VALID1_o',['../classdual__code__priority__encoder.html#a7e1c341805c874b2aa4c6c5254dff775',1,'dual_code_priority_encoder']]],
+  ['valid2_5fo_1',['VALID2_o',['../classdual__code__priority__encoder.html#a8ae25a9257cdf1ca7183ceb9c570e6de',1,'dual_code_priority_encoder']]]
 ];

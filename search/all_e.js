@@ -1,10 +1,15 @@
 var searchData=
 [
-  ['t_5fstate_0',['t_state',['../classdual__edge__detector_1_1arch.html#a6e8bf7b6e6d2938f0309bb2645a89db6',1,'dual_edge_detector::arch']]],
-  ['temp0_1',['temp0',['../classfour__bit__full__subtractor_1_1sub__arch.html#aeed929c18d95ecb76fc6d6f1b2b87eef',1,'four_bit_full_subtractor::sub_arch']]],
-  ['test_2',['test',['../classtest.html',1,'']]],
-  ['test_2evhd_3',['test.vhd',['../14_2test_8vhd.html',1,'(Global Namespace)'],['../15_2test_8vhd.html',1,'(Global Namespace)'],['../18_2test_8vhd.html',1,'(Global Namespace)'],['../19_2test_8vhd.html',1,'(Global Namespace)'],['../7_2test_8vhd.html',1,'(Global Namespace)'],['../9_2test_8vhd.html',1,'(Global Namespace)']]],
-  ['test_5farch_4',['test_arch',['../classtest_1_1test__arch.html',1,'test']]],
-  ['test_5finput_5',['test_input',['../classtest.html#a0b5a7bb4a0ae6f39e40e576278c43ace',1,'test']]],
-  ['test_5foutput_6',['test_output',['../classtest.html#af3455dbb8ecd8d933a9e8123d3f1d93a',1,'test']]]
+  ['sel_5farch_0',['sel_arch',['../classone__bit__full__subtractor_1_1sel__arch.html',1,'one_bit_full_subtractor']]],
+  ['sign_5fbin_5fi_1',['SIGN_BIN_i',['../classsigned__to__sign__magnitude__converter.html#aa33429b9c91da85efbc5548a85a00204',1,'signed_to_sign_magnitude_converter']]],
+  ['sign_5fmag_5fo_2',['SIGN_MAG_o',['../classsigned__to__sign__magnitude__converter.html#af4b61979c7aeb2a7d8b17df59ae95312',1,'signed_to_sign_magnitude_converter']]],
+  ['signed_5fto_5fsign_5fmagnitude_5fconverter_3',['signed_to_sign_magnitude_converter',['../classsigned__to__sign__magnitude__converter.html',1,'']]],
+  ['signed_5fto_5fsign_5fmagnitude_5fconverter_2evhd_4',['signed_to_sign_magnitude_converter.vhd',['../signed__to__sign__magnitude__converter_8vhd.html',1,'']]],
+  ['state_5fnext_5',['state_next',['../classmem__ctrl_1_1arch.html#aeaaabf450775d2d7defff345afa661c9',1,'mem_ctrl::arch']]],
+  ['state_5freg_6',['state_reg',['../classmem__ctrl_1_1arch.html#ad1806f6cfc8ad7dc9f65dbb6ecba33e6',1,'mem_ctrl::arch']]],
+  ['std_5flogic_5f1164_7',['std_logic_1164',['../classfour__bit__signed__comparator.html#acd03516902501cd1c7296a98e22c6fcb',1,'four_bit_signed_comparator.std_logic_1164()'],['../classnand2__gate.html#acd03516902501cd1c7296a98e22c6fcb',1,'nand2_gate.std_logic_1164()'],['../classdual__edge__detector.html#acd03516902501cd1c7296a98e22c6fcb',1,'dual_edge_detector.std_logic_1164()'],['../classmem__ctrl__vhd__tst.html#acd03516902501cd1c7296a98e22c6fcb',1,'mem_ctrl_vhd_tst.std_logic_1164()'],['../classmem__ctrl.html#acd03516902501cd1c7296a98e22c6fcb',1,'mem_ctrl.std_logic_1164()'],['../classhamming__distance__unit.html#acd03516902501cd1c7296a98e22c6fcb',1,'hamming_distance_unit.std_logic_1164()'],['../classgray__distance__unit.html#acd03516902501cd1c7296a98e22c6fcb',1,'gray_distance_unit.std_logic_1164()'],['../classeight__bit__multiplier.html#acd03516902501cd1c7296a98e22c6fcb',1,'eight_bit_multiplier.std_logic_1164()'],['../classsigned__to__sign__magnitude__converter.html#acd03516902501cd1c7296a98e22c6fcb',1,'signed_to_sign_magnitude_converter.std_logic_1164()'],['../classcomparator.html#acd03516902501cd1c7296a98e22c6fcb',1,'comparator.std_logic_1164()'],['../classdual__code__priority__encoder.html#acd03516902501cd1c7296a98e22c6fcb',1,'dual_code_priority_encoder.std_logic_1164()'],['../classone__bit__full__subtractor.html#acd03516902501cd1c7296a98e22c6fcb',1,'one_bit_full_subtractor.std_logic_1164()'],['../classfull__subtractor.html#acd03516902501cd1c7296a98e22c6fcb',1,'full_subtractor.std_logic_1164()'],['../classfour__bit__full__subtractor.html#acd03516902501cd1c7296a98e22c6fcb',1,'four_bit_full_subtractor.std_logic_1164()'],['../classdecoder__2__4.html#acd03516902501cd1c7296a98e22c6fcb',1,'decoder_2_4.std_logic_1164()'],['../classtest.html#acd03516902501cd1c7296a98e22c6fcb',1,'test.std_logic_1164()']]],
+  ['std_5flogic_5ftextio_8',['std_logic_textio',['../classmem__ctrl__vhd__tst.html#abc7d7fc2675847e1d861e3fda2b1990c',1,'mem_ctrl_vhd_tst']]],
+  ['stim_5fproc_9',['stim_proc',['../classmem__ctrl__vhd__tst_1_1arch.html#ad2efa6785cff833c341e27596b21aeb5',1,'mem_ctrl_vhd_tst::arch']]],
+  ['strobe_5fi_10',['strobe_i',['../classdual__edge__detector.html#a871c5d973bab7bde1f42aa8b4bec9c95',1,'dual_edge_detector']]],
+  ['sub_5farch_11',['sub_arch',['../classfour__bit__full__subtractor_1_1sub__arch.html',1,'four_bit_full_subtractor']]]
 ];

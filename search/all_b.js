@@ -1,9 +1,13 @@
 var searchData=
 [
-  ['p_5fo_0',['p_o',['../classdual__edge__detector.html#a1af0f33a3b9f83d231ccbe9a8c3a4927',1,'dual_edge_detector']]],
-  ['process_5f0_1',['PROCESS_0',['../classdual__code__priority__encoder_1_1arch.html#a29e527d7129c126824926168fbcd8293',1,'dual_code_priority_encoder::arch']]],
-  ['process_5f1_2',['PROCESS_1',['../classeight__bit__multiplier_1_1arch.html#aaa7072b0dbc3170c34464502754aede7',1,'eight_bit_multiplier::arch']]],
-  ['process_5f2_3',['PROCESS_2',['../classdual__edge__detector_1_1arch.html#a0c7302525d0781a9219366dd2c4c7ab2',1,'dual_edge_detector::arch']]],
-  ['process_5f3_4',['PROCESS_3',['../classdual__edge__detector_1_1arch.html#a270ed6bf8eb081dd3e10d85bc1048921',1,'dual_edge_detector::arch']]],
-  ['process_5f4_5',['PROCESS_4',['../classdual__edge__detector_1_1arch.html#a063b3b5a3da3bf9a8c840db514e44312',1,'dual_edge_detector::arch']]]
+  ['o1_0',['o1',['../classtest.html#a74f6a76e968e7d449131b2834733bbb8',1,'test']]],
+  ['o_5fagtb_1',['o_AGTB',['../classfour__bit__signed__comparator.html#a7ebb453b7659083efaf57708ed5088b4',1,'four_bit_signed_comparator']]],
+  ['o_5fc_2',['o_C',['../classfour__bit__full__subtractor.html#ac8a26a98a457b8cdb95c27a3d3521870',1,'four_bit_full_subtractor']]],
+  ['o_5fsub_3',['o_SUB',['../classfour__bit__full__subtractor.html#a71b38076ff3354ad6d2e16d507926f44',1,'four_bit_full_subtractor']]],
+  ['o_5fy_4',['o_Y',['../classdecoder__2__4.html#aa0f87e355bfc8ac4ad326300763c5eb7',1,'decoder_2_4']]],
+  ['oe_5fo_5',['oe_o',['../classmem__ctrl.html#a59639310002ba0ef18db99c9618cbef9',1,'mem_ctrl.oe_o()'],['../classmem__ctrl__vhd__tst_1_1arch.html#acb981a81e1ffdb90d96d53dd3ec9a0d9',1,'mem_ctrl_vhd_tst.arch.oe_o()']]],
+  ['one_5fbit_5ffull_5fsubtractor_6',['one_bit_full_subtractor',['../classone__bit__full__subtractor.html',1,'one_bit_full_subtractor'],['../classfour__bit__full__subtractor_1_1sub__arch.html#ab7842e904bc6f4b67c1e9026de78c3b3',1,'four_bit_full_subtractor.sub_arch.one_bit_full_subtractor()']]],
+  ['one_5fbit_5ffull_5fsubtractor_2evhd_7',['one_bit_full_subtractor.vhd',['../one__bit__full__subtractor_8vhd.html',1,'']]],
+  ['output_8',['output',['../classmem__ctrl__vhd__tst_1_1arch.html#a8127140f46fd716872ced902408fdde1',1,'mem_ctrl_vhd_tst::arch']]],
+  ['output_5fbuf_9',['output_buf',['../classmem__ctrl__vhd__tst_1_1arch.html#ab10268d96af4e211c885c60b8603a667',1,'mem_ctrl_vhd_tst::arch']]]
 ];
