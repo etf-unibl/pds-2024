@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['t_5fstate_0',['t_state',['../classmem__ctrl_1_1arch.html#a24fedb7910c994f08b4a83651fb4911f',1,'mem_ctrl.arch.t_state()'],['../classdual__edge__detector_1_1arch.html#a6e8bf7b6e6d2938f0309bb2645a89db6',1,'dual_edge_detector.arch.t_state()'],['../classsequential__multiplier_1_1arch.html#a4b01612a27e8b2fe56013accbb30a079',1,'sequential_multiplier.arch.t_state()'],['../classsequential__divider_1_1arch.html#a8fb15ac53a595ac5852b5b82fc8970b0',1,'sequential_divider.arch.t_state()'],['../classleading__zero__counter_1_1arch.html#ae3876566b5eb73ae0a64cc8fa169b02f',1,'leading_zero_counter.arch.t_state()']]],
+  ['t_5fstate_0',['t_state',['../classmem__ctrl_1_1arch.html#a24fedb7910c994f08b4a83651fb4911f',1,'mem_ctrl.arch.t_state()'],['../classdual__edge__detector_1_1arch.html#a6e8bf7b6e6d2938f0309bb2645a89db6',1,'dual_edge_detector.arch.t_state()'],['../classsequential__divider_1_1arch.html#a8fb15ac53a595ac5852b5b82fc8970b0',1,'sequential_divider.arch.t_state()']]],
   ['t_5fstate_5ftype_1',['t_state_type',['../classmem__ctrl_1_1arch.html#af0966ae8a3b86d9201820decf5a40a1d',1,'mem_ctrl::arch']]],
   ['t_5fstates_5ftype_2',['t_states_type',['../classmanchester__encoder_1_1arch.html#a1f3a4d013bf00e26adcae58589f42c46',1,'manchester_encoder::arch']]],
   ['t_5fvector_3',['t_vector',['../classmem__ctrl__vhd__tst_1_1arch.html#a6d602b4bbe92ee62eed2ae80ae7e6381',1,'mem_ctrl_vhd_tst::arch']]],

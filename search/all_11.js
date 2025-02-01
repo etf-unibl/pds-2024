@@ -1,15 +1,6 @@
 var searchData=
 [
-  ['t_5fstate_0',['t_state',['../classleading__zero__counter_1_1arch.html#ae3876566b5eb73ae0a64cc8fa169b02f',1,'leading_zero_counter.arch.t_state()'],['../classsequential__divider_1_1arch.html#a8fb15ac53a595ac5852b5b82fc8970b0',1,'sequential_divider.arch.t_state()'],['../classsequential__multiplier_1_1arch.html#a4b01612a27e8b2fe56013accbb30a079',1,'sequential_multiplier.arch.t_state()'],['../classmem__ctrl_1_1arch.html#a24fedb7910c994f08b4a83651fb4911f',1,'mem_ctrl.arch.t_state()'],['../classdual__edge__detector_1_1arch.html#a6e8bf7b6e6d2938f0309bb2645a89db6',1,'dual_edge_detector.arch.t_state()']]],
-  ['t_5fstate_5ftype_1',['t_state_type',['../classmem__ctrl_1_1arch.html#af0966ae8a3b86d9201820decf5a40a1d',1,'mem_ctrl::arch']]],
-  ['t_5fstates_5ftype_2',['t_states_type',['../classmanchester__encoder_1_1arch.html#a1f3a4d013bf00e26adcae58589f42c46',1,'manchester_encoder::arch']]],
-  ['t_5fvector_3',['t_vector',['../classmem__ctrl__vhd__tst_1_1arch.html#a6d602b4bbe92ee62eed2ae80ae7e6381',1,'mem_ctrl_vhd_tst::arch']]],
-  ['t_5fvector_5farray_4',['t_vector_array',['../classmem__ctrl__vhd__tst_1_1arch.html#abb1a629abb0ff66b565f949599ce46e7',1,'mem_ctrl_vhd_tst::arch']]],
-  ['temp0_5',['temp0',['../classfour__bit__full__subtractor_1_1sub__arch.html#aeed929c18d95ecb76fc6d6f1b2b87eef',1,'four_bit_full_subtractor::sub_arch']]],
-  ['test_6',['test',['../classtest.html',1,'']]],
-  ['test_2evhd_7',['test.vhd',['../9_2test_8vhd.html',1,'(Global Namespace)'],['../7_2test_8vhd.html',1,'(Global Namespace)'],['../19_2test_8vhd.html',1,'(Global Namespace)'],['../18_2test_8vhd.html',1,'(Global Namespace)'],['../15_2test_8vhd.html',1,'(Global Namespace)'],['../14_2test_8vhd.html',1,'(Global Namespace)']]],
-  ['test_5farch_8',['test_arch',['../classtest_1_1test__arch.html',1,'test']]],
-  ['test_5finput_9',['test_input',['../classtest.html#a0b5a7bb4a0ae6f39e40e576278c43ace',1,'test']]],
-  ['test_5foutput_10',['test_output',['../classtest.html#af3455dbb8ecd8d933a9e8123d3f1d93a',1,'test']]],
-  ['textio_11',['textio',['../classmem__ctrl__vhd__tst.html#aa8c4e25998323a84db5b1fa701b92fcb',1,'mem_ctrl_vhd_tst']]]
+  ['v_5fi_0',['v_i',['../classmanchester__encoder.html#ae3d189541fe5918f1c92c3561e8d87e4',1,'manchester_encoder']]],
+  ['valid1_5fo_1',['VALID1_o',['../classdual__code__priority__encoder.html#a7e1c341805c874b2aa4c6c5254dff775',1,'dual_code_priority_encoder']]],
+  ['valid2_5fo_2',['VALID2_o',['../classdual__code__priority__encoder.html#a8ae25a9257cdf1ca7183ceb9c570e6de',1,'dual_code_priority_encoder']]]
 ];

@@ -1,10 +1,13 @@
 var searchData=
 [
-  ['n_5fi_0',['n_i',['../classleading__zero__counter.html#af81134ed8c4948d991ed4da7d9f857d4',1,'leading_zero_counter']]],
-  ['n_5fnext_1',['n_next',['../classsequential__multiplier_1_1arch.html#a263359df0418261cadc0cc80b3bff6b0',1,'sequential_multiplier.arch.n_next()'],['../classleading__zero__counter_1_1arch.html#a23faa2901d8b610df3987ba892daed2a',1,'leading_zero_counter.arch.n_next()']]],
-  ['n_5freg_2',['n_reg',['../classsequential__multiplier_1_1arch.html#a46f567cf81d02a3508c06e0d32663ea1',1,'sequential_multiplier.arch.n_reg()'],['../classleading__zero__counter_1_1arch.html#a2d66bfcb3980155cd979f6c11a68c831',1,'leading_zero_counter.arch.n_reg()']]],
-  ['nand2_5fgate_3',['nand2_gate',['../classnand2__gate.html',1,'']]],
-  ['next_5fstate_4',['next_state',['../classdual__edge__detector_1_1arch.html#abf410545f9c6b67b4702b576f7fd8232',1,'dual_edge_detector::arch']]],
-  ['next_5fstate_5fpath_5',['next_state_path',['../classsequential__divider_1_1arch.html#a328c2e233e9526e9d4cb96a2ac91c6bf',1,'sequential_divider::arch']]],
-  ['numeric_5fstd_6',['numeric_std',['../classleading__zero__counter.html#a2edc34402b573437d5f25fa90ba4013e',1,'leading_zero_counter.numeric_std()'],['../classsequential__divider.html#a2edc34402b573437d5f25fa90ba4013e',1,'sequential_divider.numeric_std()'],['../classsequential__multiplier.html#a2edc34402b573437d5f25fa90ba4013e',1,'sequential_multiplier.numeric_std()'],['../classmem__ctrl__vhd__tst.html#a2edc34402b573437d5f25fa90ba4013e',1,'mem_ctrl_vhd_tst.numeric_std()'],['../classhamming__distance__unit.html#a2edc34402b573437d5f25fa90ba4013e',1,'hamming_distance_unit.numeric_std()'],['../classgray__distance__unit.html#a2edc34402b573437d5f25fa90ba4013e',1,'gray_distance_unit.numeric_std()'],['../classeight__bit__multiplier.html#a2edc34402b573437d5f25fa90ba4013e',1,'eight_bit_multiplier.numeric_std()'],['../classsigned__to__sign__magnitude__converter.html#a2edc34402b573437d5f25fa90ba4013e',1,'signed_to_sign_magnitude_converter.numeric_std()'],['../classcomparator.html#a2edc34402b573437d5f25fa90ba4013e',1,'comparator.numeric_std()'],['../classdual__code__priority__encoder.html#a2edc34402b573437d5f25fa90ba4013e',1,'dual_code_priority_encoder.numeric_std()'],['../classone__bit__full__subtractor.html#a2edc34402b573437d5f25fa90ba4013e',1,'one_bit_full_subtractor.numeric_std()']]]
+  ['o1_0',['o1',['../classtest.html#a74f6a76e968e7d449131b2834733bbb8',1,'test']]],
+  ['o_5fagtb_1',['o_AGTB',['../classfour__bit__signed__comparator.html#a7ebb453b7659083efaf57708ed5088b4',1,'four_bit_signed_comparator']]],
+  ['o_5fc_2',['o_C',['../classfour__bit__full__subtractor.html#ac8a26a98a457b8cdb95c27a3d3521870',1,'four_bit_full_subtractor']]],
+  ['o_5fsub_3',['o_SUB',['../classfour__bit__full__subtractor.html#a71b38076ff3354ad6d2e16d507926f44',1,'four_bit_full_subtractor']]],
+  ['o_5fy_4',['o_Y',['../classdecoder__2__4.html#aa0f87e355bfc8ac4ad326300763c5eb7',1,'decoder_2_4']]],
+  ['oe_5fo_5',['oe_o',['../classmem__ctrl.html#a59639310002ba0ef18db99c9618cbef9',1,'mem_ctrl.oe_o()'],['../classmem__ctrl__vhd__tst_1_1arch.html#acb981a81e1ffdb90d96d53dd3ec9a0d9',1,'mem_ctrl_vhd_tst.arch.oe_o()']]],
+  ['one_5fbit_5ffull_5fsubtractor_6',['one_bit_full_subtractor',['../classone__bit__full__subtractor.html',1,'one_bit_full_subtractor'],['../classfour__bit__full__subtractor_1_1sub__arch.html#ab7842e904bc6f4b67c1e9026de78c3b3',1,'four_bit_full_subtractor.sub_arch.one_bit_full_subtractor()']]],
+  ['one_5fbit_5ffull_5fsubtractor_2evhd_7',['one_bit_full_subtractor.vhd',['../one__bit__full__subtractor_8vhd.html',1,'']]],
+  ['output_8',['output',['../classmem__ctrl__vhd__tst_1_1arch.html#a8127140f46fd716872ced902408fdde1',1,'mem_ctrl_vhd_tst::arch']]],
+  ['output_5fbuf_9',['output_buf',['../classmem__ctrl__vhd__tst_1_1arch.html#ab10268d96af4e211c885c60b8603a667',1,'mem_ctrl_vhd_tst::arch']]]
 ];

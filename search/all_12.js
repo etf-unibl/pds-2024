@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['v_5fi_0',['v_i',['../classmanchester__encoder.html#ae3d189541fe5918f1c92c3561e8d87e4',1,'manchester_encoder']]],
-  ['valid1_5fo_1',['VALID1_o',['../classdual__code__priority__encoder.html#a7e1c341805c874b2aa4c6c5254dff775',1,'dual_code_priority_encoder']]],
-  ['valid2_5fo_2',['VALID2_o',['../classdual__code__priority__encoder.html#a8ae25a9257cdf1ca7183ceb9c570e6de',1,'dual_code_priority_encoder']]]
+  ['we_5fme_5fo_0',['we_me_o',['../classmem__ctrl.html#a1890c73a2130956af2ba2d57beaa9cef',1,'mem_ctrl.we_me_o()'],['../classmem__ctrl__vhd__tst_1_1arch.html#afd9f693e9fa4035f4f6c616674e397d9',1,'mem_ctrl_vhd_tst.arch.we_me_o()']]],
+  ['we_5fo_1',['we_o',['../classmem__ctrl.html#a36926c3ecef95fa1be2bd07b73ac6710',1,'mem_ctrl.we_o()'],['../classmem__ctrl__vhd__tst_1_1arch.html#a1cc012343436ce810d614758a65f2883',1,'mem_ctrl_vhd_tst.arch.we_o()']]]
 ];

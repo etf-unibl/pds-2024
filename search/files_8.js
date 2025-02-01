@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['one_5fbit_5ffull_5fsubtractor_2evhd_0',['one_bit_full_subtractor.vhd',['../one__bit__full__subtractor_8vhd.html',1,'']]]
+  ['sequential_5fdivider_2evhd_0',['sequential_divider.vhd',['../sequential__divider_8vhd.html',1,'']]],
+  ['signed_5fto_5fsign_5fmagnitude_5fconverter_2evhd_1',['signed_to_sign_magnitude_converter.vhd',['../signed__to__sign__magnitude__converter_8vhd.html',1,'']]]
 ];
